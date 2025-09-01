@@ -23,6 +23,7 @@ h1 {
     margin: 20px;
     display: flex;
     gap: 10px;
+    font-size: 50px;
 }
 
 nav ul {
@@ -47,7 +48,7 @@ li a:hover {
 section > div {
     display: flex;       
     gap: 20px;           
-    justify-content: flex-start; 
+    justify-content: center; 
 }
 
 
