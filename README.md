@@ -1,4 +1,6 @@
 # IDW_Grupo10
+ESTRUCTURA:
+
 INTEGRANTES:
 Chiara Giuliana Antich
 Luciano Di Brino
