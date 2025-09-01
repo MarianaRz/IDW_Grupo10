@@ -1,5 +1,6 @@
 # IDW_Grupo10
 ESTRUCTURA:
+(aca estructura sencilla)
 
 INTEGRANTES:
 Chiara Giuliana Antich
