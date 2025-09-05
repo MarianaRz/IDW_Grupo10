@@ -17,6 +17,11 @@ main {
 
 footer {
     margin: 20px;
+    background-color: #f4f4f4;      
+    color: #333;                 
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 18px;
 }
 
 h1 {
@@ -45,27 +50,179 @@ li a:hover {
     text-decoration: underline;
 }
 
-section > div {
-    display: flex;       
+#obras_sociales {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 10px;                       
+  margin: 0 auto;          
+  padding: 20px 0;
+}
+
+#obras_sociales img {
+  width: 120px;
+  align-items: center;
+  border-radius: 10px;
+}
+
+#catalogo > div {
+    display: flex;   
+    flex-wrap: wrap;    
     gap: 20px;           
     justify-content: center; 
 }
 
-
-section > div > div {
-    width: 200px;    
+.tarjeta_doctor {
+    width: 180px;    
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
     text-align: center;
+    flex-shrink: 0;
 }
 
-section > div > div img {
+#catalogo > div > .tarjeta_doctor > img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 5px;
     margin-top: 10px;
+}
+
+#contacto {
+    display: flex;
+    justify-content: center;  
+    align-items: flex-start;
+    gap: 60px;                       
+}
+
+#contacto form {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    width: 700px;
+    max-width: 700px;
+    margin: 10px 0 40px 10px;
+    box-shadow: 0 0 25px #0001;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.form_input {
+    padding: 10px 20px;
+}
+
+input, textarea, select, button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: 1px solid #bbb;
+    box-shadow: 0 0 8px #0001;
+    background-color: transparent;
+    border-radius: 4px;
+    color: #333;
+    margin-top: 4px;
+}
+
+textarea {
+    resize: none;
+    min-width: 100%;
+    font-family: sans-serif;
+    min-height: 80px;
+    height: 80px;
+}
+
+form > h2 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 30px;
+    color: #333;
+}
+
+label {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.checkbox {
+    width: auto;
+    height: 10px;
+}
+
+option {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+button {
+    width: 92%;
+    margin-left: 20px;
+    background-color: #ddd;
+    color: #333;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(73, 73, 248);
+    color: #f4f4f4;
+}
+
+fieldset {
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    padding: 0 6px 20px 8px;
+    margin: 20px;
+}
+
+legend {
+    padding: 0 6px;
+    color: #666;
+}
+
+.checkbox_group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /
+}
+
+.checkbox_group input {
+  width: auto; 
+  margin: 0;
+}
+
+.contacto_info {
+    width: 450px;   
+    height: 600px;                  
+    padding: 20px;
+    margin-top: 10px;
+    background-image: 
+         linear-gradient(to bottom, #f4f4f4 30%, rgba(255,255,255,0) 70%),
+        url("../imagen/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.contacto_info h3 {
+    margin-bottom: 20px;
+    margin-top: 8px;
+    font-size: 24px;
+    color: #222;
+    text-align: center;
+}
+
+.contacto_info p {
+    margin: 6px 0 20px 0;
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+}
+
+p > i {
+    color: rgb(73, 73, 248);
+    margin-right: 8px;
 }
