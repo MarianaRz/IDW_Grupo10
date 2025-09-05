@@ -6,14 +6,20 @@ body {
 }
 
 header {
-    background-color: rgb(73, 73, 248);
+    /* background-color: rgb(73, 73, 248);
     color: #f4f4f4;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 10px 0; */
+    background-color:rgb(73, 73, 248); 
+    color:#f4f4f4; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 30px;
 }
 
-main {
+/* main {
     margin: 20px;
-}
+} */
 
 footer {
     margin: 20px;
@@ -67,4 +73,78 @@ section > div > div img {
     border-radius: 50%;
     margin-bottom: 5px;
     margin-top: 10px;
+}
+
+/* Sección de servicios */ 
+.servicios { 
+  padding: 60px 20px; 
+  color: #fff; 
+  background: url('../imagen/clinica.jpg') no-repeat center 
+center/cover; 
+} 
+ 
+.servicios .container { 
+  max-width: 1250px; 
+  padding: 15px 30px; 
+  margin: auto; 
+} 
+ 
+/* Títulos */ 
+.subtitulo { 
+  color: rgb(73, 73, 248); 
+  font-size: 14px; 
+  text-transform: uppercase; 
+  margin: 0; 
+} 
+ 
+.titulo { 
+  color:#333; 
+  font-size: 32px; 
+  margin: 10px 0 40px; 
+} 
+ 
+/* Grid de servicios */ 
+.grid-servicios { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px; 
+} 
+ 
+/* Card */ 
+.card { 
+  background: #fff; 
+  color: #333; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  transition: transform 0.2s ease-in-out; 
+} 
+ 
+.card:hover { 
+  transform: translateY(-5px); 
+} 
+ 
+.card .icono { 
+  font-size: 36px; 
+  color: rgb(73, 73, 248); 
+  margin-bottom: 10px; 
+} 
+ 
+.card h3 { 
+  margin: 10px 0; 
+} 
+ 
+.card p { 
+  font-size: 15px; 
+  line-height: 1.5; 
+  margin-bottom: 15px; 
+} 
+ 
+.card a { 
+  font-weight: bold; 
+  color: rgb(73, 73, 248); 
+  text-decoration: none; 
+} 
+.card a:hover {
+    text-decoration: underline;
 }
