@@ -1,14 +1,26 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
+    background-image: url(../imagen/fondoinicio.jpg);  
     margin: 0;
     color: #333;
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    padding-top: 120px;
 }
 
 header {
     background-color: rgb(73, 73, 248);
     color: #f4f4f4;
-    padding: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;       
+    z-index: 1000;
 }
 
 main {
@@ -17,7 +29,7 @@ main {
 
 footer {
     margin: 20px;
-    background-color: #f4f4f4;      
+    background-color: transparent;      
     color: #333;                 
     text-align: center;
     padding: 20px 10px;
@@ -57,29 +69,40 @@ li a:hover {
   gap: 10px;                       
   margin: 0 auto;          
   padding: 20px 0;
+  margin-top: 40px;
 }
 
 #obras_sociales img {
   width: 120px;
   align-items: center;
   border-radius: 10px;
+  box-shadow: 0 0 25px #0001;
+}
+
+#obras_sociales a:hover {
+ transform: translateY(-5px);
 }
 
 #catalogo > div {
     display: flex;   
     flex-wrap: wrap;    
     gap: 20px;           
-    justify-content: center; 
+    justify-content: center;
+    margin: 20px; 
 }
 
 .tarjeta_doctor {
-    width: 180px;    
+    width: 200px;    
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     text-align: center;
     flex-shrink: 0;
+}
+
+.tarjeta_doctor:hover {
+ transform: translateY(-5px);
 }
 
 #catalogo > div > .tarjeta_doctor > img {
@@ -107,6 +130,11 @@ li a:hover {
     box-shadow: 0 0 25px #0001;
     border-radius: 8px;
     min-width: 300px;
+}
+
+#catalogo > h2 {
+    margin-top: 40px;
+    margin-left: 40px;
 }
 
 .form_input {
@@ -225,4 +253,79 @@ legend {
 p > i {
     color: rgb(73, 73, 248);
     margin-right: 8px;
+}
+
+/* Sección de servicios */
+.servicios {
+ padding: 60px 20px;
+ color: #fff;
+ background: url('../imagen/clinica.jpg') no-repeat center
+center/cover;
+}
+
+.servicios .container {
+ padding: 15px 30px;
+ margin: 0 auto;
+ width: 100%;
+}
+
+/* Títulos */
+.subtitulo {
+ color: rgb(73, 73, 248);
+ font-size: 14px;
+ text-transform: uppercase;
+ margin: 0;
+}
+
+.titulo {
+ color:#333;
+ font-size: 32px;
+ margin: 10px 0 40px;
+}
+
+/* Grid de servicios */
+.grid-servicios {
+ display: grid;
+ grid-template-columns: repeat(3, 400px);
+ gap: 30px;
+}
+
+/* Card */
+.card {
+ background: #fff;
+ color: #333;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+ transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+ transform: translateY(-5px);
+}
+
+.card .icono {
+ font-size: 36px;
+ color: rgb(73, 73, 248);
+ margin-bottom: 10px;
+}
+
+.card h3 {
+ margin: 10px 0;
+}
+
+.card p {
+ font-size: 15px;
+ line-height: 1.5;
+ margin-bottom: 15px;
+}
+
+.card a {
+ font-weight: bold;
+ color: rgb(73, 73, 248);
+ text-decoration: none;
+}
+
+.card a:hover {
+ text-decoration: underline;
 }
