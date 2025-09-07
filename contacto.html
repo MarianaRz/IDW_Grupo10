@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>IDW S.A</title>
 </head>
 <body>
@@ -14,33 +14,82 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="institucional.html">Institucional</a></li> 
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
     </header>
     <main>
-        <h2>Contacto</h2>
-        <p>Teléfono: 1234-5678</p>
-        <p>Email: contacto@idwsa.com</p>
-        <p>Dirección: Calle Falsa 123, Ciudad</p>
-
-        <h2>Envíanos un mensaje</h2>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje"></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
+        <section id="contacto">
+            <form>
+                <h2>COMUNICATE CON NOSOTROS</h2>
+                <fieldset>
+                    <legend>INFORMACION BASICA</legend>
+                    <div class="form_input">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" placeholder="Juan Gonzales" id="nombre" required>
+                    </div>
+                    <div class="form_input">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="juangonzales@gmail.com" id="email" required> 
+                    </div>
+                    <div class="form_input">
+                        <label for="telefono">Teléfono (opcional)</label>
+                        <input type="tel" placeholder="351-1234567" name="telefono">
+                    </div>
+                </fieldset>
+                <div class="form_input">
+                    <label for="motivo">Motivo de contacto</label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="turno">Solicitud de turno</option>
+                        <option value="info">Información general</option>
+                        <option value="sugerencia">Queja / Sugerencia</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                    <div class="form_input">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea rows="6" placeholder="Escribe un mensaje..." id="mensaje" required></textarea>
+                    </div>
+                    <div class="form_input checkbox_group">
+                        <input type="checkbox" id="consentimiento" name="consentimiento" required>
+                        <label for="consentimiento">Acepto que mis datos sean utilizados para ser contactado</label>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+            <div class="contacto_info">
+                <h3>NUESTRA INFORMACION</h3>
+                <p><i class="fa-solid fa-clock"></i>Lunes a Viernes 8:00hs - 21:00hs</p>
+                <p><i class="fa-solid fa-location-dot"></i>San Martin 520, Córdoba Capital</p>
+                <p><i class="fa-solid fa-envelope"></i>contacto@centromedico.com</p>
+                <p><p><i class="fa-solid fa-phone"></i>351-1234567</p>
+                <p><i class="fa-solid fa-phone"></i>351-7654321</p>
+            </div>
+        </section>
+        <section class="ubicacion">          
+            <div class="mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6188.07344770656!2d-65.25546330080168!3d-34.75514754368968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1757135354604!5m2!1ses!2sar" 
+                    width="80%" 
+                    height="250" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                <a href="https://maps.app.goo.gl/KEDdSqqgN5aRwET8A" target="_blank" class="btn-mapa">Cómo llegar</a>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2025 IDW S.A</p>
+        <div class="iconos_rs">
+            <i class="fab fa-facebook-f"></i></a>
+            <i class="fab fa-twitter"></i></a>
+            <i class="fab fa-instagram"></i></a>
+            <i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 IDW S.A. Todos los derechos reservados</p>
     </footer>
 </body>
 </html>
