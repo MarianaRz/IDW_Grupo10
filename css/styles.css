@@ -62,6 +62,13 @@ li a:hover {
     text-decoration: underline;
 }
 
+.titulo_ {
+  color: #111;
+  font-size: 32px;
+  margin-left: 70px;
+}
+
+/* OBRAS SOCIALES */
 #obras_sociales {
   display: flex;
   flex-wrap: wrap;
@@ -83,6 +90,7 @@ li a:hover {
  transform: translateY(-5px);
 }
 
+/* CATALOGO DE DOCTORES */
 #catalogo > div {
     display: flex;   
     flex-wrap: wrap;    
@@ -92,13 +100,18 @@ li a:hover {
 }
 
 .tarjeta_doctor {
-    width: 200px;    
+    width: 200px; 
+    height: 300px;   
     padding: 15px;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #F9F9F9;
     text-align: center;
     flex-shrink: 0;
+}
+
+.tarjeta_doctor a {
+    color: rgb(109, 156, 255);
 }
 
 .tarjeta_doctor:hover {
@@ -110,10 +123,158 @@ li a:hover {
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 5px;
-    margin-top: 10px;
+    margin: 10px auto 10px auto;
 }
 
+/* SERVICIOS/ESPECIALIDADES MEDICAS */
+.servicios {
+ padding: 60px 20px;
+ color: #fff;
+ background: url('../imagen/clinica.jpg') no-repeat center
+center/cover;
+}
+
+.servicios .container {
+  padding: 15px 0;
+  margin: 0 auto;       
+  max-width: 1200px;    
+  width: 100%;          
+  box-sizing: border-box; 
+}
+
+.subtitulo {
+ color: rgb(73, 73, 248);
+ font-size: 14px;
+ text-transform: uppercase;
+ margin: 0;
+}
+
+.titulo {
+ color: #111;
+ font-size: 32px;
+ margin: 10px 0 40px;
+}
+
+.grid-servicios {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr); 
+ gap: 30px;
+ justify-content: center; 
+}
+
+.card {
+ background: #F9F9F9;
+ color: #333;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+ transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+ transform: translateY(-5px);
+}
+
+.card .icono {
+ font-size: 36px;
+ color: rgb(73, 73, 248);
+ margin-bottom: 10px;
+}
+
+.card h3 {
+ margin: 10px 0;
+}
+
+.card p {
+ font-size: 15px;
+ line-height: 1.5;
+ margin-bottom: 15px;
+}
+
+.card a {
+ font-weight: bold;
+ color: rgb(73, 73, 248);
+ text-decoration: none;
+}
+
+.card a:hover {
+ text-decoration: underline;
+}
+
+/* NOVEDADES */
+.novedades {
+    background-color: transparent;
+    margin-bottom: 60px;
+}
+
+.novedades div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.box-novedades {
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 380px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s;
+}
+
+.box-novedades:hover {
+    transform: translateY(-5px);
+}
+
+.box-novedades img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.box-novedades h3 {
+    margin-left: 2cqb;
+    font-size: 18px;
+}
+
+.noticia-split {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    background-color: rgba(0, 0, 0, 0);  
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: row; 
+}
+
+.noticia-texto {
+    width: 60%;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #000;
+    line-height: 1.7;
+}
+
+.noticia-img-container {
+    width: 40%;
+}
+
+.noticia-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* SECCION DE CONTACTO */
 #contacto {
     display: flex;
     justify-content: center;  
@@ -130,11 +291,6 @@ li a:hover {
     box-shadow: 0 0 25px #0001;
     border-radius: 8px;
     min-width: 300px;
-}
-
-#catalogo > h2 {
-    margin-top: 40px;
-    margin-left: 40px;
 }
 
 .form_input {
@@ -214,7 +370,7 @@ legend {
 .checkbox_group {
   display: flex;
   align-items: center;
-  gap: 8px; /
+  gap: 8px; 
 }
 
 .checkbox_group input {
@@ -255,77 +411,38 @@ p > i {
     margin-right: 8px;
 }
 
-/* Sección de servicios */
-.servicios {
- padding: 60px 20px;
- color: #fff;
- background: url('../imagen/clinica.jpg') no-repeat center
-center/cover;
+.ubicacion {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-.servicios .container {
- padding: 15px 30px;
- margin: 0 auto;
- width: 100%;
+.ubicacion .mapa {
+    position: relative;  
+    max-width: 1200px;   
+    width: 100%;         
 }
 
-/* Títulos */
-.subtitulo {
- color: rgb(73, 73, 248);
- font-size: 14px;
- text-transform: uppercase;
- margin: 0;
+.ubicacion iframe {
+    width: 100%;
+    height: 400px;       
+    border-radius: 8px;
+    display: block;
 }
 
-.titulo {
- color:#333;
- font-size: 32px;
- margin: 10px 0 40px;
+.btn-mapa {
+    position: absolute;
+    bottom: 20px;     
+    left: 50%;   
+    transform: translateX(-50%); 
+    padding: 12px 24px;
+    background-color: rgb(73, 73, 248);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-/* Grid de servicios */
-.grid-servicios {
- display: grid;
- grid-template-columns: repeat(3, 400px);
- gap: 30px;
-}
-
-/* Card */
-.card {
- background: #fff;
- color: #333;
- padding: 20px;
- border-radius: 10px;
- box-shadow: 0 4px 8px rgba(0,0,0,0.1);
- transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
- transform: translateY(-5px);
-}
-
-.card .icono {
- font-size: 36px;
- color: rgb(73, 73, 248);
- margin-bottom: 10px;
-}
-
-.card h3 {
- margin: 10px 0;
-}
-
-.card p {
- font-size: 15px;
- line-height: 1.5;
- margin-bottom: 15px;
-}
-
-.card a {
- font-weight: bold;
- color: rgb(73, 73, 248);
- text-decoration: none;
-}
-
-.card a:hover {
- text-decoration: underline;
+.btn-mapa:hover {
+    background-color: rgb(46, 46, 255);
 }
