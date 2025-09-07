@@ -247,7 +247,7 @@ center/cover;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    background-color: rgba(0, 0, 0, 0);  
+    background-color: rgba(255, 255, 255, 0.4);  
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
     flex-direction: row; 
@@ -445,4 +445,76 @@ p > i {
 
 .btn-mapa:hover {
     background-color: rgb(46, 46, 255);
+}
+
+/* SECCION INSTITUCIONAL */
+.institucional {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex-direction: row;
+}
+
+.institucional-contenido {
+  width: 60%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #000;
+  line-height: 1.7;
+}
+
+.institucional-img {
+  width: 40%;
+}
+
+.institucional-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ajustes en títulos y párrafos */
+.institucional-contenido h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: rgb(73, 73, 248);
+  border-bottom: 2px solid rgba(73, 73, 248, 0.3);
+  padding-bottom: 5px;
+}
+
+.institucional-contenido p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.institucional-contenido ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.institucional-contenido li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .institucional {
+    flex-direction: column;
+  }
+  .institucional-contenido,
+  .institucional-img {
+    width: 100%;
+  }
 }
