@@ -1,0 +1,456 @@
+/* CUERPO PRINCIPAL DE LA WEB */
+body{
+  margin: 0;
+  padding: 0;
+  padding-top: 140px;
+  background-color: #f9f9f9;
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 990px) {
+  body {
+    padding-top: 180px; 
+  }
+}
+
+/* HEADER */
+header {
+  background-color: rgb(73, 73, 248);
+  padding: 40px;
+  margin-bottom: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.menu a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline; 
+}
+
+
+@media (max-width: 575px) {
+  .menu {
+    margin-top: 1rem;
+    justify-content: start;
+    gap: 1rem;
+  }
+}
+
+/* SECCION MAIN GENERAL */
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.subtitulo {
+  margin-top: 50px;
+  color: rgb(73, 73, 248);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 575px) {
+  .subtitulo {
+    margin-top: 20px;
+  }
+}
+
+#especialidades, #novedades, #obras_sociales, #catalogo {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #f2f2f2;
+  color: #333;
+  margin-top: 60px;
+}
+
+.footer i {
+  font-size: 20px;
+  color: #333;
+  transition: color 0.2s;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.footer i:hover {
+  color: rgb(73, 73, 248);
+}
+
+.footer-link {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-bottom: 5px;
+}
+
+.footer-link:hover {
+  color: rgb(73, 73, 248);
+}
+
+@media (max-width: 767px) {
+  .footer .col-12 {
+    margin-bottom: 20px;
+    text-align: center !important;
+  }
+}
+
+/* OBRAS SOCIALES */
+#obras_sociales {
+  gap: 0.4rem;
+}
+
+#obras_sociales a {
+  height: 60px;
+}
+
+#obras_sociales a:hover {
+ transform: translateY(-5px);
+}
+
+#obras_sociales img.logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 575px) {
+  #obras_sociales a {
+    height: 30px; 
+  }
+}
+
+/* CATALOGO DE DOCTORES */
+#contenedor_doctores {
+  gap: 0.9rem;
+}
+
+.tarjeta_doctor {
+  position: relative;
+  width: 240px;
+  height: 320px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 20px 10px 5px 10px;
+  min-width: 240px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.tarjeta_doctor h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta_doctor img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.tarjeta_doctor a {
+  position: absolute;   
+  bottom: 10px;   
+  left: 50%;         
+  transform: translateX(-50%);
+  color: rgb(73, 73, 248);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tarjeta_doctor a:hover {
+  text-decoration: underline;
+}
+
+.tarjeta_doctor:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 575px) {
+  .tarjeta_doctor {
+    display: flex;
+    flex-direction: row;    
+    align-items: center; 
+    padding: 10px 15px;
+    height: auto;            
+    width: 100%;             
+    text-align: start;        
+  }
+
+  .tarjeta_doctor img {
+    width: 100px;           
+    height: 100px;
+    margin: 0 15px 0 0;      
+    border-radius: 50%;
+  }
+
+  .tarjeta_doctor h3,
+  .tarjeta_doctor p {
+    margin: 5px 5px;         
+  }
+
+  .tarjeta_doctor p {
+    font-size: 15px;  
+  }
+  
+
+  .tarjeta_doctor .contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;  
+  }
+}
+
+/* ESPECIALIDADES */
+#especialidades .card {
+ color: #333;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 0 8px rgba(0,0,0,0.1);
+ border: transparent;
+}
+
+#especialidades .card:hover {
+ transform: translateY(-5px);
+}
+
+#especialidades .card .icono {
+ font-size: 36px;
+ color: rgb(73, 73, 248);
+ margin-bottom: 10px;
+}
+
+#especialidades .card h3 {
+ margin: 10px 0;
+}
+
+#especialidades .card p {
+ font-size: 15px;
+ line-height: 1.5;
+ margin-bottom: 15px;
+}
+
+#especialidades .card a {
+ font-weight: bold;
+ color: rgb(73, 73, 248);
+ text-decoration: none;
+}
+
+#especialidades .card a:hover {
+ text-decoration: underline;
+}
+
+/* NOVEDADES */
+#novedades .box-novedades {
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-decoration: none;
+  overflow: hidden;
+  color: #333;
+  transition: transform 0.2s;
+  background-color: #fff;
+}
+
+#novedades .box-novedades:hover {
+  transform: translateY(-5px);
+}
+
+#novedades .box-novedades img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+#novedades .box-novedades h3 {
+  margin: 20px 10px;
+  font-size: 18px;
+}
+
+/* NOTICIAS */
+.noticia-split {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    background-color: rgba(255, 255, 255, 0.4);  
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: row; 
+}
+
+.noticia-texto {
+    width: 60%;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #000;
+    line-height: 1.7;
+}
+
+.noticia-img-container {
+    width: 40%;
+}
+
+.noticia-texto h3 {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+.noticia-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* SECCION INSTITUCIONAL */
+.institucional {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex-direction: row;
+}
+
+.institucional-contenido {
+  width: 60%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #000;
+  line-height: 1.7;
+}
+
+.institucional-img {
+  width: 40%;
+}
+
+.institucional-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.institucional-contenido h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: rgb(73, 73, 248);
+  border-bottom: 2px solid rgba(73, 73, 248, 0.3);
+  padding-bottom: 5px;
+}
+
+.institucional-contenido p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.institucional-contenido ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.institucional-contenido li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .institucional, .noticia-split {
+    flex-direction: column;
+  }
+  .institucional-contenido,
+  .institucional-img, 
+  .noticia-texto,
+  .noticia-img-container {
+    width: 100%;
+  }
+}
+
+/* SECCION CONTACTO */
+#contacto form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: transparent;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+}
+
+#contacto fieldset {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#contacto legend {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#contacto h2 {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+#contacto .btn-primary {
+  width: 100%;
+  background-color: rgb(73, 73, 248);
+  border-color: rgb(73, 73, 248);
+}
+
+#contacto .btn-primary:hover {
+  background-color: rgb(38, 38, 221);
+  border-color: rgb(38, 38, 221);
+}

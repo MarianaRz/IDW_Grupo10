@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Medico IDW</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-4">
+                <h1 class="logo">Centro Médico</h1>
+            </div>
+            <nav class="col-12 col-sm-8">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="institucional.html">Institucional</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="contacto" class="container my-5 d-flex justify-content-center">
+        <form class="needs-validation p-4" novalidate>
+            <h2 class="text-center">COMUNICATE CON NOSOTROS</h2>
+            <div class="text-center mb-4">
+                <p class="lead text-muted">¡Tu opinión nos importa! Escribinos tu consulta y construyamos juntos un mejor servicio de salud. Estamos acá para ayudarte.</p>
+            </div>
+            <fieldset class="mb-4 p-3">
+                <legend>INFORMACIÓN BÁSICA</legend>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Juan Gonzales" required>
+                    <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="juangonzales@gmail.com" required>
+                    <div class="invalid-feedback">Por favor, ingresa un email válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="351-1234567">
+                </div>
+            </fieldset>
+
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo de contacto</label>
+                <select id="motivo" class="form-select" required>
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="turno">Solicitud de turno</option>
+                    <option value="info">Información general</option>
+                    <option value="sugerencia">Queja / Sugerencia</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" class="form-control" rows="6" placeholder="Escribe un mensaje..." required></textarea>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="consentimiento" required>
+                <label class="form-check-label" for="consentimiento">Acepto que mis datos sean utilizados para ser contactado</label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+        </section>
+    </main>
+    <footer class="footer pt-5 pb-3">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+                    <p class="fw-bold mb-2">Sobre nosotros</p>
+                    <a href="institucional.html" class="footer-link">Quiénes somos</a>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+                    <p class="fw-bold mb-2">Comunicate con nosotros</p>
+                    <a href="contacto.html" class="footer-link">Contáctanos aquí</a>
+                </div>
+
+                <div class="col-12 col-md-4 text-center">
+                    <p class="fw-bold mb-2">Nuestros datos</p>
+                    <p class="mb-1">San Martín 520, Córdoba Capital</p>
+                    <p class="mb-0">351 - 1234567 | contacto@centromedico.com</p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 text-center mb-2">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 IDW S.A. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
