@@ -108,6 +108,7 @@ main {
   padding-right: 0;
 }
 
+
 /* FOOTER */
 .footer {
   background-color: #fff;
@@ -472,4 +473,27 @@ main {
 #contacto .btn-primary:hover {
   background-color: rgb(38, 38, 221);
   border-color: rgb(38, 38, 221);
+}
+
+
+/*UBICACION*/
+.ubic {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.mapa-cont {
+  width: 100%;              /* Ocupa todo el ancho */
+  max-width: 1200px;        /* Para que no se estire de más en pantallas grandes */
+  margin: 0 auto;           /* Centrado */
+  height: 300px;            /* Ajusta la altura (aprox. como "Novedades") */
+  border-radius: 10px;      /* Opcional, igual al estilo de las demás tarjetas */
+  overflow: hidden;         /* Para que no sobresalga */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Para que combine con el resto */
+}
+
+.mapa-cont iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
