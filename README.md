@@ -1,0 +1,2 @@
+usuario: admin
+clave: 1234
