@@ -6,8 +6,13 @@
     <title>Login - IDW S.A</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="bg-light min-vh-100 d-flex flex-column">
+    <a href="../index.html" class="volver-inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver al inicio
+    </a>    
     <main class="container py-5 flex-grow-1">
         <h2 class="mb-4 text-center">Iniciar sesión</h2>
         <form id="form_login" class="row justify-content-center">
@@ -20,7 +25,7 @@
                     <label for="clave" class="form-label">Contraseña</label>
                     <input type="password" id="clave" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button id="btn_login" type="submit" class="btn btn-primary w-100">Ingresar</button>
             </div>
         </form>
         <div id="mensaje" class="row justify-content-center mt-3"></div>
