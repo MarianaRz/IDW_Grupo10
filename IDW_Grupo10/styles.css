@@ -548,3 +548,12 @@ body#admin {
   color: #fff;              
   font-weight: 400;          
 }
+
+/* Para que se vean bien los campos con error o validados:*/
+.is-invalid {
+  border: 2px solid #dc3545;
+}
+.is-valid {
+  border: 2px solid #198754;
+}
+
