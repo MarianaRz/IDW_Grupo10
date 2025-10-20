@@ -95,62 +95,8 @@
             </div>
         </section>
     </main>
-
-    <!-- SCRIP PARA PRUEBAS!!!!!!! -->
-    <script>
-        const MEDICOS_INICIALES = [
-            {
-                matricula: 1234,
-                apellido: "Gómez",
-                nombre: "Laura",
-                especialidad: "Cardiología",
-                obraSocial: "OSDE",
-                valorConsulta: 7500,
-                descripcion: "Especialista en cardiología con 10 años de experiencia."
-            },
-            {
-                matricula: 5678,
-                apellido: "Pérez",
-                nombre: "Andrés",
-                especialidad: "Pediatría",
-                obraSocial: "Swiss Medical",
-                valorConsulta: 6800,
-                descripcion: "Pediatra enfocado en desarrollo infantil."
-            },
-            {
-                matricula: 9101,
-                apellido: "Fernández",
-                nombre: "Sofía",
-                especialidad: "Dermatología",
-                obraSocial: "Galeno",
-                valorConsulta: 7200,
-                descripcion: "Dermatóloga especializada en tratamientos estéticos y clínicos."
-            }
-        ];
-
-        localStorage.removeItem("medicos");
-
-        if (!localStorage.getItem("medicos")) {
-            localStorage.setItem("medicos", JSON.stringify(MEDICOS_INICIALES));
-        }
-
-        const tabla = document.getElementById("tabla_medicos");
-        const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
-
-        medicos.forEach((m) => {
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-                <td>${m.matricula}</td>
-                <td>${m.apellido}</td>
-                <td>${m.nombre}</td>
-                <td>${m.especialidad}</td>
-                <td>${m.obraSocial}</td>
-                <td>$${m.valorConsulta}</td>
-                <td>${m.descripcion}</td>
-            `;
-            tabla.appendChild(fila);
-        });
-    </script>
+    <script src="../js/medicos.js"></script>
+    <script src="../js/visualizarmedicos.js"></script>
     <script src="../js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

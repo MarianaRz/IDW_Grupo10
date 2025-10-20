@@ -9,12 +9,6 @@ body{
   background-size: cover; 
 }
 
-/* @media (max-width: 990px) {
-  body {
-    padding-top: 190px; 
-  }
-} */
-
 @media (max-width: 575px) {
   body {
     padding-top: 160px; 
@@ -570,4 +564,12 @@ body#admin {
   background-color: #6c757d;
   color: #fff;              
   font-weight: 400;          
+}
+
+/* Para que se vean bien los campos con error o validados:*/
+.is-invalid {
+  border: 2px solid #dc3545;
+}
+.is-valid {
+  border: 2px solid #198754;
 }
