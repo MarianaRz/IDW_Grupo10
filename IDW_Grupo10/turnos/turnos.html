@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Turnos - Centro Médico IDW</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body id="admin">
+  <header>
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-4">
+        <h1 class="logo">Centro Médico</h1>
+      </div>
+      <nav class="col-12 col-sm-8">
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../institucional.html">Institucional</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>      
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="sidebar d-flex flex-column p-3">
+    <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
+    <div class="submenu">
+      <a href="turnos.html">Realizar reserva</a>
+      <a href="buscadorturnos.html">Buscar turnos</a>
+      <a href="#">Especialidades</a>
+      
+    </div>
+    <a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
+  </nav>
+
+  <main id="cuerpo">
+    <section id="form_admin" class="container my-4 d-flex justify-content-center">
+      <form id="formTurno" class="needs-validation p-4 my-3" novalidate>
+        <h2 class="text-center mb-3">RESERVA DE TURNOS - PARTICULARES</h2>
+
+        <!-- DATOS PERSONALES -->
+        <fieldset class="p-2 mb-3">
+          <legend>DATOS PERSONALES</legend>
+          <div class="row mb-1">
+            <div class="col">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="col">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" required>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="dni" class="form-control" id="dni" required>
+          </div>
+          <div class="mb-1">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" required>
+          </div>
+        </fieldset>
+
+        <!-- SELECCIÓN DE TURNO -->
+        <fieldset class="p-2 mb-3">
+          <legend>SELECCIÓN DE TURNO</legend>
+
+          <div class="mb-2">
+            <label for="medico" class="form-label">Médico</label>
+            <select id="medico" class="form-select" required>
+              <option value="">Seleccione un médico...</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label for="especialidad" class="form-label">Especialidad</label>
+            <select id="especialidad" class="form-select" required>
+              <option value="">Seleccione una especialidad...</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label for="fecha" class="form-label">Fecha del turno</label>
+            <input type="date" class="form-control" id="fecha" required>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Costo de la consulta</label>
+            <p id="valorConsulta" class="form-control-plaintext text-primary fw-bold">—</p>
+          </div>
+
+
+          <div class="mb-3">
+            <label class="form-label">Horarios disponibles</label>
+            <div id="horarios" class="d-flex flex-wrap gap-2">
+              <!-- Se cargarán dinámicamente los botones de horarios -->
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="p-2 text-center">
+          <button id="btn_admin" type="submit" class="btn btn-primary px-5">
+            Confirmar Turno
+          </button>
+        </div>
+
+        <!-- Revisión del turno -->
+        <div id="revisionTurno" class="mt-4 d-none">
+          <h4 class="text-center mb-3">Revisión del Turno</h4>
+          <ul class="list-group mb-3" id="resumenDatos"></ul>
+          <div class="text-center">
+            <button id="btnFinalizar" type="button" class="btn btn-success px-4">Realizar reserva</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Script externo -->
+  <script src="turnos.js"></script>
+</body>
+</html>

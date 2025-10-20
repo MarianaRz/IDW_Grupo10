@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Turnos - Centro Médico IDW</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body id="admin">
+  <header>
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-4">
+        <h1 class="logo">Centro Médico</h1>
+      </div>
+      <nav class="col-12 col-sm-8">
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../institucional.html">Institucional</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>      
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ <nav class="sidebar d-flex flex-column p-3">
+    <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
+    <div class="submenu">
+      <a href="turnos.html">Realizar reserva</a>
+      <a href="buscadorturnos.html">Buscar turnos</a>
+      <a href="#">Especialidades</a>
+      
+    </div>
+    <a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
+  </nav>
+
+  <main class="container my-4">
+    <h2 class="text-center mb-4">Buscar Turnos por DNI</h2>
+
+    <form id="formBuscar" class="mb-4">
+      <div class="input-group">
+        <input type="text" id="dniBuscar" class="form-control" placeholder="Ingrese DNI" required>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </form>
+
+    <div id="resultadosTurnos" class="d-none">
+      <h4 class="mb-3">Turnos encontrados</h4>
+      <ul class="list-group" id="listaTurnos"></ul>
+    </div>
+  </main>
+
+  <script src="buscadorturnos.js"></script>
+</body>
+</html>
