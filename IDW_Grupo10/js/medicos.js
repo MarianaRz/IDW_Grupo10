@@ -1,7 +1,3 @@
-// ================================
-// 🧩 Módulo base - Inicialización Médicos
-// ================================
-
 const MEDICOS_BASE = [
   {
     matricula: 1234,
@@ -32,15 +28,9 @@ const MEDICOS_BASE = [
   }
 ];
 
-// Si no existe la clave "medicos", se inicializa con la base
 if (!localStorage.getItem("medicos")) {
   localStorage.setItem("medicos", JSON.stringify(MEDICOS_BASE));
 }
-
-// Función global para obtener los médicos actualizados
-// function obtenerMedicos() {
-//   return JSON.parse(localStorage.getItem("medicos")) || [];
-// }
 
 function obtenerMedicos() {
   try {
@@ -51,8 +41,6 @@ function obtenerMedicos() {
   }
 }
 
-
-// Función global para guardar los médicos actualizados
 function guardarMedicos(lista) {
   localStorage.setItem("medicos", JSON.stringify(lista));
 }

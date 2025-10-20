@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let medicoActual = null;
 
-  // 🔍 Buscar médico por matrícula
   btnBuscar.addEventListener("click", () => {
     const matricula = Number(inputMatricula.value.trim());
     if (!matricula) {
@@ -22,13 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Mostrar datos del médico en los inputs
     document.getElementById("nombre").value = medicoActual.nombre;
     document.getElementById("apellido").value = medicoActual.apellido;
     document.getElementById("especialidad").value = medicoActual.especialidad;
   });
 
-  // 🗑️ Eliminar médico
   btnEliminar.addEventListener("click", () => {
     if (!medicoActual) {
       alert("Primero debe buscar un médico antes de eliminarlo.");
@@ -46,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     medicoActual = null;
   });
 
-  // 🔄 Función auxiliar para limpiar los inputs
   function limpiarCampos() {
     inputMatricula.value = "";
     document.getElementById("nombre").value = "";

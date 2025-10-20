@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let medicos = obtenerMedicos();
     const indice = medicos.findIndex(m => m.matricula === medicoActual.matricula);
 
-    // Actualizar datos
     medicos[indice] = {
       ...medicoActual,
       nombre: document.getElementById("nombre").value.trim(),
