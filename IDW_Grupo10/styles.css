@@ -9,11 +9,11 @@ body{
   background-size: cover; 
 }
 
-@media (max-width: 990px) {
+/* @media (max-width: 990px) {
   body {
     padding-top: 190px; 
   }
-}
+} */
 
 @media (max-width: 575px) {
   body {
@@ -37,6 +37,7 @@ header {
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .menu {
@@ -59,6 +60,16 @@ header {
   text-decoration: underline; 
 }
 
+@media (max-width: 900px) {
+  .menu {
+    font-size: 1rem;
+    gap: 0.8rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+}
 
 @media (max-width: 575px) {
   .menu {
@@ -436,40 +447,113 @@ main {
 }
 
 /* SECCION CONTACTO */
-#contacto form {
+#contacto form{
   background-color: #fff;
-  border: 1px solid #ddd;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: transparent;
   border-radius: 20px;
   max-width: 700px;
   width: 100%;
 }
 
-#contacto fieldset {
+#contacto fieldset{
   border: 1px solid #ddd;
   border-radius: 10px;
 }
 
-#contacto legend {
+#contacto legend{
   font-weight: bold;
   font-size: 1.2rem;
   color: #333;
 }
 
-#contacto h2 {
+#contacto h2{
   color: #333;
   font-weight: bold;
   font-size: 1.8rem;
 }
 
-#contacto .btn-primary {
+#boton_contacto, #btn_admin {
   width: 100%;
   background-color: rgb(73, 73, 248);
   border-color: rgb(73, 73, 248);
 }
 
-#contacto .btn-primary:hover {
+#boton_contacto:hover {
   background-color: rgb(38, 38, 221);
   border-color: rgb(38, 38, 221);
 }
+
+main#cuerpo {
+  margin-left: 250px; 
+  min-height: 100vh;
+}
+
+body#admin {
+  background: white !important;
+  background-image: none !important;
+}
+
+.sidebar {
+  position: absolute;
+  top: 135px;
+  left: 0;
+  width: 250px;
+  min-height: calc(100vh - 135px); 
+  background-color: white;
+  box-shadow: 3px 0 10px -5px rgba(0, 0, 0, 0.1);
+  color: #333;
+  padding-top: 100px;
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    top: 120px;
+  }
+}
+
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.sidebar a:hover {
+  color: rgb(73, 73, 248);
+}
+
+#form_admin form {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 700px;
+  width: 100%;
+  min-width: 200px;
+}
+
+#form_admin legend{
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#form_admin h2{
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.table thead th {
+  background-color: #6c757d;
+  color: #fff;              
+  font-weight: 400;          
+}
+
+/* Para que se vean bien los campos con error o validados:*/
+.is-invalid {
+  border: 2px solid #dc3545;
+}
+.is-valid {
+  border: 2px solid #198754;
+}
+

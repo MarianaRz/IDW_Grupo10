@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico IDW</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body id="admin">
+    <header>
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-4">
+                <h1 class="logo">Centro Médico</h1>
+            </div>
+            <nav class="col-12 col-sm-8">
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../institucional.html">Institucional</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sidebar d-flex flex-column p-3">
+        <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
+        <div class="submenu">
+            <a href="#">Visualizar reservas</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-user-doctor me-2"></i>Médicos</p>
+        <div class="submenu">
+            <a href="altamedicos.html">Registrar nuevo</a>
+            <a href="editarmedico.html">Editar existente</a>
+            <a href="eliminarmedico.html">Eliminar médico</a>
+            <a href="visualizarmedicos.html" class="active">Visualizar médicos</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
+        <div class="submenu">
+            <a href="#">Registrar nueva</a>
+            <a href="#">Editar existente</a>
+            <a href="#">Eliminar especialidad</a>
+            <a href="#">Visualizar especialidades</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
+        <div class="submenu">
+            <a href="#">Registrar nueva</a>
+            <a href="#">Editar existente</a>
+            <a href="#">Eliminar obra social</a>
+            <a href="#">Visualizar obras sociales</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
+    </nav>
+
+    <main id="cuerpo">
+        <section class="container my-4">
+            <h2 class="text-center mb-4">LISTADO DE MÉDICOS</h2>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">Matrícula</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Obra Social</th>
+                            <th scope="col">Valor Consulta</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla_medicos">
+                        <!-- Filas generadas con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCRIP PARA PRUEBAS!!!!!!! -->
+    <!-- <script>
+        const MEDICOS_INICIALES = [
+            {
+                matricula: 1234,
+                apellido: "Gómez",
+                nombre: "Laura",
+                especialidad: "Cardiología",
+                obraSocial: "OSDE",
+                valorConsulta: 7500,
+                descripcion: "Especialista en cardiología con 10 años de experiencia."
+            },
+            {
+                matricula: 5678,
+                apellido: "Pérez",
+                nombre: "Andrés",
+                especialidad: "Pediatría",
+                obraSocial: "Swiss Medical",
+                valorConsulta: 6800,
+                descripcion: "Pediatra enfocado en desarrollo infantil."
+            },
+            {
+                matricula: 9101,
+                apellido: "Fernández",
+                nombre: "Sofía",
+                especialidad: "Dermatología",
+                obraSocial: "Galeno",
+                valorConsulta: 7200,
+                descripcion: "Dermatóloga especializada en tratamientos estéticos y clínicos."
+            }
+        ];
+
+        localStorage.removeItem("medicos");
+
+        if (!localStorage.getItem("medicos")) {
+            localStorage.setItem("medicos", JSON.stringify(MEDICOS_INICIALES));
+        }
+
+        const tabla = document.getElementById("tabla_medicos");
+        const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+
+        medicos.forEach((m) => {
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
+                <td>${m.matricula}</td>
+                <td>${m.apellido}</td>
+                <td>${m.nombre}</td>
+                <td>${m.especialidad}</td>
+                <td>${m.obraSocial}</td>
+                <td>$${m.valorConsulta}</td>
+                <td>${m.descripcion}</td>
+            `;
+            tabla.appendChild(fila);
+        });
+    </script> -->
+    <script src="../js/medicos.js"></script>
+    <script src="../js/visualizarmedicos.js"></script>
+    <!-- <script src="../js/login.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Centro Médico IDW</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body id="admin">
+	<header>
+		<div class="row align-items-center">
+			<div class="col-12 col-sm-4">
+				<h1 class="logo">Centro Médico</h1>
+			</div>
+			<nav class="col-12 col-sm-8">
+				<ul class="menu">
+					<li><a href="../index.html">Inicio</a></li>
+					<li><a href="../institucional.html">Institucional</a></li>
+					<li><a href="../contacto.html">Contacto</a></li>
+					<li><a href="../login.html">Login</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<nav class="sidebar d-flex flex-column p-3">
+		<p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
+		<div class="submenu">
+			<a href="#">Visualizar reservas</a>
+		</div>
+
+		<hr class="bg-light">
+
+		<p class="fw-bold mb-1"><i class="fa-solid fa-user-doctor me-2"></i>Médicos</p>
+		<div class="submenu">
+			<a href="altamedicos.html">Registrar nuevo</a>
+			<a href="editarmedico.html">Editar existente</a>
+			<a href="eliminarmedico.html">Eliminar médico</a>
+			<a href="visualizarmedicos.html">Visualizar médicos</a>
+		</div>
+
+		<hr class="bg-light">
+
+		<p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
+		<div class="submenu">
+			<a href="#">Registrar nueva</a>
+			<a href="#">Editar existente</a>
+			<a href="#">Eliminar especialidad</a>
+			<a href="#">Visualizar especialidades</a>
+		</div>
+
+		<hr class="bg-light">
+
+		<p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
+		<div class="submenu">
+			<a href="#">Registrar nueva</a>
+			<a href="#">Editar existente</a>
+			<a href="#">Eliminar obra social</a>
+			<a href="#">Visualizar obras sociales</a>
+		</div>
+
+		<hr class="bg-light">
+
+		<a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
+	</nav>
+
+	<main id="cuerpo">
+		<section id="form_admin" class="container my-1 d-flex justify-content-center">
+			<form id="form_editar" class="needs-validation p-4 my-3" novalidate>
+				<h2 class="text-center">EDITAR MÉDICO</h2>
+
+				<fieldset class="p-2 mb-3">
+					<legend>BUSCAR MÉDICO</legend>
+					<div class="row">
+						<div class="col">
+							<label for="buscar_matricula" class="form-label">Matrícula profesional</label>
+							<input type="number" class="form-control" id="buscar_matricula" required>
+						</div>
+						<div class="col d-flex align-items-end">
+							<button id="btn_buscar" type="button" class="btn btn-secondary w-100">Cargar datos</button>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset class="p-2">
+					<legend>DATOS PERSONALES</legend>
+					<div class="row mb-1">
+						<div class="col">
+							<label for="nombre" class="form-label">Nombre</label>
+							<input type="text" class="form-control" id="nombre" required>
+						</div>
+						<div class="col">
+							<label for="apellido" class="form-label">Apellido</label>
+							<input type="text" class="form-control" id="apellido" required>
+						</div>
+					</div>
+					<div class="mb-1">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" class="form-control" id="email" required>
+					</div>
+					<div class="mb-1">
+						<label for="telefono" class="form-label">Teléfono</label>
+						<input type="tel" class="form-control" id="telefono" required>
+					</div>
+				</fieldset>
+
+				<fieldset class="p-2">
+					<legend>INFORMACIÓN MÉDICA</legend>
+					<div class="row mb-1">
+						<div class="col">
+							<label for="matricula" class="form-label">Matrícula profesional</label>
+							<input type="number" class="form-control" id="matricula" readonly>
+						</div>
+						<div class="col">
+							<label for="consulta" class="form-label">Valor de consulta</label>
+							<input type="number" class="form-control" id="consulta">
+						</div>
+					</div>
+					<div class="mb-1">
+						<label for="especialidad" class="form-label">Especialidad</label>
+						<input type="text" class="form-control" id="especialidad" required>
+					</div>
+					<div class="row mb-1">
+						<div class="col">
+							<label for="obrasocial" class="form-label">Obra social</label>
+							<input type="text" class="form-control" id="obrasocial" required>
+						</div>
+						<div class="col">
+							<label for="obrasocial2" class="form-label">Obra social secundaria (opcional)</label>
+							<input type="text" class="form-control" id="obrasocial2">
+						</div>
+					</div>
+					<div class="mb-1">
+						<label for="descripcion" class="form-label">Descripción</label>
+						<textarea class="form-control" id="descripcion" rows="3" required></textarea>
+					</div>
+					<div class="mt-2 d-flex flex-column">
+						<label for="foto" class="form-label mb-2">Actualizar fotografía (opcional)</label>
+						<input type="file" id="foto" class="form-control w-100">
+					</div>
+				</fieldset>
+
+				<div class="p-2">
+					<button id="btn_admin" type="submit" class="btn btn-primary">Guardar cambios</button>
+				</div>
+			</form>
+		</section>
+	</main>
+	<script src="../js/medicos.js"></script>
+	<script src="../js/editarmedico.js"></script>
+	<script src="../js/validar_editar_medico.js"></script>
+</body>
+</html>
