@@ -36,15 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // ⚠️ Validación antes de guardar
+    const esValido = validarFormulario();
+    if (!esValido) {
+      alert("Por favor, complete correctamente todos los campos antes de guardar.");
+      return;
+    }
+
     let medicos = obtenerMedicos();
     const indice = medicos.findIndex(m => m.matricula === medicoActual.matricula);
 
-    medicos[indice] = {
+      medicos[indice] = {
       ...medicoActual,
       nombre: document.getElementById("nombre").value.trim(),
       apellido: document.getElementById("apellido").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      telefono: document.getElementById("telefono").value.trim(),
       especialidad: document.getElementById("especialidad").value.trim(),
       obraSocial: document.getElementById("obrasocial").value.trim(),
+      obraSocial2: document.getElementById("obrasocial2").value.trim(),
       valorConsulta: Number(document.getElementById("consulta").value),
       descripcion: document.getElementById("descripcion").value.trim()
     };

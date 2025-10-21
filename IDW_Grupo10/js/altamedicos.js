@@ -1,22 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form_admin");
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if (typeof validarFormulario === "function") {
-      const esValido = validarFormulario();
-      if (!esValido) {
-        if (!window.alertMostrado) {
-          window.alertMostrado = true;
-          alert("Por favor, complete correctamente todos los campos requeridos.");
-          setTimeout(() => (window.alertMostrado = false), 500);
-        }
-        return;
-      }
+    // Validar primero
+    if (typeof validarFormulario === "function" && !validarFormulario()) {
+      alert("Por favor, complete correctamente todos los campos requeridos.");
+      return;
     }
 
-    let medicos = obtenerMedicos();
+    // Obtener médicos del localStorage
+    let medicos = JSON.parse(localStorage.getItem("medicos") || "[]");
 
     const nuevoMedico = {
       matricula: Number(document.getElementById("matricula").value),
@@ -24,17 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
       nombre: document.getElementById("nombre").value.trim(),
       especialidad: document.getElementById("especialidad").value.trim(),
       obraSocial: document.getElementById("obrasocial").value.trim(),
-      valorConsulta: Number(document.getElementById("consulta").value),
+      valorConsulta: Number(document.getElementById("consulta").value || 0),
       descripcion: document.getElementById("descripcion").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      telefono: document.getElementById("telefono").value.trim()
     };
 
+    // Evitar matrícula repetida
     if (medicos.some(m => m.matricula === nuevoMedico.matricula)) {
       alert("Ya existe un médico con esa matrícula.");
       return;
     }
 
     medicos.push(nuevoMedico);
-    guardarMedicos(medicos);
+    localStorage.setItem("medicos", JSON.stringify(medicos));
 
     alert("Médico agregado correctamente ✅");
     form.reset();

@@ -9,12 +9,6 @@ body{
   background-size: cover; 
 }
 
-/* @media (max-width: 990px) {
-  body {
-    padding-top: 190px; 
-  }
-} */
-
 @media (max-width: 575px) {
   body {
     padding-top: 160px; 
@@ -472,17 +466,40 @@ main {
   font-size: 1.8rem;
 }
 
-#boton_contacto, #btn_admin {
+#boton_contacto, #btn_admin, #btn_login {
   width: 100%;
   background-color: rgb(73, 73, 248);
   border-color: rgb(73, 73, 248);
 }
 
-#boton_contacto:hover {
+#boton_contacto:hover, #btn_admin:hover, #btn_login:hover {
   background-color: rgb(38, 38, 221);
   border-color: rgb(38, 38, 221);
 }
 
+/* -- LOGIN -- */
+.volver-inicio {
+  position: absolute; 
+  top: 20px;          
+  left: 20px;         
+  font-size: 1.2rem;
+  color: rgb(73, 73, 248);     
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;           
+  z-index: 1000;
+}
+
+#login_item .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  color: #333 !important; 
+}
+
+/* SECCION ADMINISTRADOR */
 main#cuerpo {
   margin-left: 250px; 
   min-height: 100vh;
@@ -556,4 +573,3 @@ body#admin {
 .is-valid {
   border: 2px solid #198754;
 }
-
