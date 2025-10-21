@@ -1,15 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form_admin");
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Validar primero
+    // validar
     if (typeof validarFormulario === "function" && !validarFormulario()) {
       alert("Por favor, complete correctamente todos los campos requeridos.");
       return;
     }
 
-    // Obtener médicos del localStorage
+    // obtener médicos del localStorage
     let medicos = JSON.parse(localStorage.getItem("medicos") || "[]");
 
     const nuevoMedico = {
@@ -21,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
       valorConsulta: Number(document.getElementById("consulta").value || 0),
       descripcion: document.getElementById("descripcion").value.trim(),
       email: document.getElementById("email").value.trim(),
-      telefono: document.getElementById("telefono").value.trim()
+      telefono: document.getElementById("telefono").value.trim(),
     };
 
-    // Evitar matrícula repetida
-    if (medicos.some(m => m.matricula === nuevoMedico.matricula)) {
+    // evitar matrícula repetida
+    if (medicos.some((m) => m.matricula === nuevoMedico.matricula)) {
       alert("Ya existe un médico con esa matrícula.");
       return;
     }

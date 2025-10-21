@@ -6,5 +6,9 @@ const usuarios = [
     {
         usuario: "idw",
         clave: "0000"
+    },
+    {
+        usuario: "intro",
+        clave: "abcd"
     }
 ]

@@ -37,7 +37,7 @@ if (form_login) {
     });
 }
 
-// Mostrar usuario en el header si hay sesión iniciada
+// mostrar usuario en el header si hay sesión iniciada
 document.addEventListener("DOMContentLoaded", function() {
     const login_item = document.getElementById("login_item");
     const usuario_logeado = sessionStorage.getItem("usuario_logeado");

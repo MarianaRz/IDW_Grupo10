@@ -2,7 +2,7 @@ function marcarError(elemento, mensaje) {
   if (!elemento) return;
   elemento.classList.add("is-invalid");
 
-  // Evitamos duplicar mensajes
+  // evitamos duplicar mensajes
   let previo = elemento.parentNode.querySelector(".text-danger");
   if (previo) previo.remove();
 
@@ -15,7 +15,7 @@ function marcarError(elemento, mensaje) {
 function marcarOk(elemento) {
   if (!elemento) return;
   elemento.classList.add("is-valid");
-  // Eliminamos mensaje de error previo si existía
+  // eliminamos mensaje de error previo si existía
   let previo = elemento.parentNode.querySelector(".text-danger");
   if (previo) previo.remove();
 }
