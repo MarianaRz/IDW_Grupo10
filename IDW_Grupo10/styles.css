@@ -4,94 +4,120 @@ body{
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  padding-top: 140px;
   background-image: url(imagen/fondoinicio.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover; 
 }
 
-@media (max-width: 900px) {
-  body {
-    padding-top: 160px; 
-  }
-}
-
 /* HEADER */
 header {
   background-color: rgb(73, 73, 248);
-  padding: 40px;
-  margin-bottom: 40px;
+  color: white;
+  padding: 2rem 4rem; /* más alto y más ancho */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 .logo {
-  color: white;
-  font-size: 2.5rem;
+  font-size: 2.6rem; 
   font-weight: bold;
-  white-space: nowrap;
+  margin: 0;
 }
 
 .menu {
   display: flex;
-  gap: 1.5rem;
   justify-content: flex-end;
+  align-items: center;
+  gap: 3rem; 
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 1.2rem;
 }
 
 .menu a {
   color: white;
-  font-weight: 500;
   text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: inline-flex;          
+  align-items: center;          
+  gap: 0.5rem;                   
+  white-space: nowrap;           
+  transition: color 0.2s ease;
 }
 
 .menu a:hover {
-  text-decoration: underline; 
+  color: #e0e0ff;
 }
 
-/* --- Forzar que el logo y el nav se apilen cuando hay poco espacio --- */
+
 @media (max-width: 900px) {
-  header .row {
-    flex-direction: column !important; 
-    align-items: flex-start !important; 
+  header {
+    padding: 1.5rem 1.5rem;
   }
 
-  header nav {
+  #filas_header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    white-space: nowrap; 
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  nav {
     width: 100%;
   }
 
   .menu {
-    justify-content: flex-start !important;
-    margin-top: 0.5rem;
-    gap: 1rem;
-    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
-  .logo {
-    font-size: 2rem;
+  .menu a {
+    font-size: 16px;
   }
 }
 
+@media (max-width: 600px) {
+  header {
+    padding: 1.5rem 1.5rem;
+  }
 
-@media (max-width: 575px) {
+  #filas_header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    white-space: nowrap; 
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
   .menu {
-    margin-top: 0.5rem;
-    justify-content: start;
-    gap: 1rem;
-    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
   }
 
-  .logo {
-    font-size: 2rem;
+  .menu a {
+    font-size: 15px;
   }
 }
+
 
 /* SECCION MAIN GENERAL */
 main {
@@ -536,16 +562,16 @@ body#admin {
 }
 
 .sidebar {
-  position: absolute;
-  top: 135px;
+  position: fixed; 
   left: 0;
   width: 250px;
-  min-height: calc(100vh - 135px); 
+  height: 100vh; 
   background-color: white;
   box-shadow: 3px 0 10px -5px rgba(0, 0, 0, 0.1);
   color: #333;
-  padding-top: 100px;
-  overflow: visible;
+  padding-top: 2rem; 
+  overflow-y: auto; 
+  z-index: 900; 
 }
 
 @media (max-width: 900px) {

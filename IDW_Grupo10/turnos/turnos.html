@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <div class="row align-items-center">
+            <div id="filas_header" class="row align-items-center">
                 <div class="col-12 col-sm-4">
                     <h1 class="logo">Centro Médico</h1>
                 </div>
@@ -27,12 +27,17 @@
         </header>
 
         <!-- NAV BAR DE TURNOS -->
-        <nav class="nav nav-pills justify-content-center my-3">
+        <!-- <nav class="nav nav-pills justify-content-center my-3">
             <button id="btnNavReservar" class="btn btn-outline-primary me-3">Reservar un turno</button>
             <button id="btnNavVerTurnos" class="btn btn-outline-primary">Ver mis turnos</button>
-        </nav>
+        </nav> -->
 
         <main>
+            <!-- NAV BAR DE TURNOS -->
+            <nav class="nav nav-pills justify-content-center my-3">
+                <button id="btnNavReservar" class="btn btn-outline-primary me-3">Reservar un turno</button>
+                <button id="btnNavVerTurnos" class="btn btn-outline-primary">Ver mis turnos</button>
+            </nav>
             <section id="form_turnos" class="container my-2 d-flex justify-content-center">
                 <form id="formTurno" class="needs-validation p-4 w-100" novalidate>
                     <h2 class="text-center">RESERVA DE TURNOS - PARTICULARES</h2>
@@ -163,7 +168,7 @@
                 </div>
             </div>
         </footer>
-
+        <script src="../js/header.js"></script>
         <script src="../js/medicos.js"></script>
         <script src="turnos.js"></script>
         <script src="js/login.js"></script>
