@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const form = document.getElementById("form_admin");
 
   form.addEventListener("submit", (e) => {
