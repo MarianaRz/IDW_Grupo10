@@ -41,6 +41,7 @@ if (form_login) {
 document.addEventListener("DOMContentLoaded", function () {
   const login_item = document.getElementById("login_item");
   const usuario_logeado = sessionStorage.getItem("usuario_logeado");
+  const menu = document.querySelector(".menu");
 
   if (usuario_logeado && login_item) {
     login_item.innerHTML = `
@@ -65,6 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
         </ul>
       </div>
     `;
+
+    if (usuario_logeado.toLowerCase() === "emilys") {
+      if (!document.getElementById("admin_item")) {
+        const adminLi = document.createElement("li");
+        adminLi.id = "admin_item";
+
+        // ✅ Ruta absoluta (funciona sin importar la carpeta)
+        const rutaAdmin = "/admin/altamedicos.html";
+
+        adminLi.innerHTML = `<a href="${rutaAdmin}">Admin</a>`;
+        menu.insertBefore(adminLi, login_item.parentElement);
+      }
+    }
 
     const cerrar_sesion = document.getElementById("cerrar_sesion");
     cerrar_sesion.addEventListener("click", function () {
