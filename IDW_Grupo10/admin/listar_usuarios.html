@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body id="admin">
     <header>
         <div id="filas_header" class="row align-items-center">
@@ -43,7 +44,7 @@
             <a href="altamedicos.html">Registrar nuevo</a>
             <a href="editarmedico.html">Editar existente</a>
             <a href="eliminarmedico.html">Eliminar médico</a>
-            <a href="visualizarmedicos.html" class="active">Visualizar médicos</a>
+            <a href="visualizarmedicos.html">Visualizar médicos</a>
         </div>
 
         <hr class="bg-light">
@@ -68,71 +69,32 @@
 
         <hr class="bg-light">
 
-        <hr class="bg-light">
-
-        <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Usuarios</p>
-        <div class="submenu">
-            <a href="listar_usuarios.html">Listar</a>
-
-        </div>
-
-        <hr class="bg-light">
-
         <a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
     </nav>
 
     <main id="cuerpo">
-        <section id="form_admin" class="container my-1 d-flex justify-content-center">
-            <form id="form_eliminar" class="needs-validation p-4 my-3" novalidate>
-                <h2 class="text-center">ELIMINAR MÉDICO</h2>
+        <section class="container my-4">
+            <h2 class="text-center mb-4">LISTADO DE USUARIOS</h2>
 
-                <fieldset class="p-2 mb-3">
-                    <legend>BUSCAR MÉDICO</legend>
-                    <div class="row">
-                        <div class="col">
-                            <label for="buscar_matricula" class="form-label">Matrícula profesional</label>
-                            <input type="number" class="form-control" id="buscar_matricula" required/>
-                        </div>
-                        <div class="col d-flex align-items-end">
-                            <button id="btn_buscar" type="button" class="btn btn-secondary w-100">
-                                <i class="fa-solid fa-magnifying-glass me-1"></i>Buscar
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- <fieldset class="p-2" id="datos_medico" style="display: none;"> -->
-                <fieldset class="p-2" id="datos_medico">
-                    <legend>DATOS DEL MÉDICO</legend>
-                    <div class="row mb-1">
-                        <div class="col">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" readonly />
-                        </div>
-                        <div class="col">
-                            <label class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="apellido" readonly />
-                        </div>
-                    </div>
-                    <div class="mb-1">
-                        <label class="form-label">Especialidad</label>
-                        <input type="text" class="form-control" id="especialidad" readonly />
-                    </div>
-                    <div class="alert alert-warning mt-3" role="alert">
-                        ⚠️ Esta acción eliminará al médico de forma permanente.
-                    </div>
-                    <div class="d-flex justify-content-center mt-3">
-                        <button id="btn_eliminar" type="button" class="btn btn-danger">
-                            <i class="fa-solid fa-trash me-1"></i>Eliminar médico
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
+            <div class="table-responsive">
+                <table id= "tablaUsuarios" class="table table-bordered align-middle text-center" >
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuarios">
+                        <!-- Filas generadas con JS -->
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <script src="../js/header.js"></script>
-    <script src="../js/medicos.js"></script>
-    <script src="../js/eliminarmedico.js"></script>
+    <script src="../js/listar_usuarios.js"></script>
     <script src="../js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
