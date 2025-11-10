@@ -19,7 +19,7 @@
 					<li><a href="../index.html">Inicio</a></li>
 					<li><a href="../institucional.html">Institucional</a></li>
 					<li><a href="../contacto.html">Contacto</a></li>
-					<li><a href="../turnos/turnos.html">Turnos</a></li>
+					<li><a href="../reservadeturnos/reservadeturnos.html">Turnos</a></li>
 					<li>
                         <a href="../login.html" id="login_item">
                             <i class="fa-solid fa-user"></i>  Login
@@ -31,12 +31,26 @@
 	</header>
 
 	<nav class="sidebar d-flex flex-column p-3">
+		<p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
+        <div class="submenu">
+            <a href="usuarios.html">Visualizar usuarios</a>
+        </div>
+
+        <hr class="bg-light" />
+
 		<p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
 		<div class="submenu">
-			<a href="visualizarturnos.html">Visualizar turnos</a>
-		</div>
+            <a href="visualizarreservas.html">Visualizar reservas</a>
+        </div>
 
 		<hr class="bg-light">
+
+		<p class="fw-bold mb-1"><i class="fa-solid fa-clock me-2"></i>Turnos</p>
+        <div class="submenu">
+            <a href="turnos.html" class="active">Gestionar turnos</a>
+        </div>
+
+        <hr class="bg-light">
 
 		<p class="fw-bold mb-1"><i class="fa-solid fa-user-doctor me-2"></i>Médicos</p>
 		<div class="submenu">
@@ -49,26 +63,23 @@
 		<hr class="bg-light">
 
 		<p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
-		<div class="submenu">
-			<a href="#">Registrar nueva</a>
-			<a href="#">Editar existente</a>
-			<a href="#">Eliminar especialidad</a>
-			<a href="#">Visualizar especialidades</a>
-		</div>
+        <div class="submenu">
+            <a href="altaespecialidad.html">Registrar nueva</a>
+            <a href="editarespecialidad.html">Editar existente</a>
+            <a href="eliminarespecialidad.html">Eliminar especialidad</a>
+            <a href="visualizarespecialidades.html">Visualizar especialidades</a>
+        </div>
 
 		<hr class="bg-light">
 
 		<p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
 		<div class="submenu">
-			<a href="#">Registrar nueva</a>
-			<a href="#">Editar existente</a>
-			<a href="#">Eliminar obra social</a>
-			<a href="#">Visualizar obras sociales</a>
-		</div>
+            <a href="altaobrasocial.html">Registrar nueva</a>
+            <a href="editarobrasocial.html">Editar existente</a>
+            <a href="eliminarobrasocial.html">Eliminar obra social</a>
+            <a href="visualizarobrasociales.html">Visualizar obras sociales</a>
+        </div>
 
-		<hr class="bg-light">
-
-		<a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
 	</nav>
 
 	<main id="cuerpo">
@@ -124,17 +135,23 @@
 						</div>
 					</div>
 					<div class="mb-1">
-						<label for="especialidad" class="form-label">Especialidad</label>
-						<input type="text" class="form-control" id="especialidad" required>
+						<label for="selectEspecialidad" class="form-label">Especialidad</label>
+						<select id="selectEspecialidad" class="form-select" required>
+							<option value="">Seleccione una especialidad</option>
+						</select>
 					</div>
 					<div class="row mb-1">
 						<div class="col">
-							<label for="obrasocial" class="form-label">Obra social</label>
-							<input type="text" class="form-control" id="obrasocial" required>
+							<label for="selectObraSocial" class="form-label">Obra social</label>
+							<select id="selectObraSocial" class="form-select" required>
+								<option value="">Seleccione una obra social</option>
+							</select>
 						</div>
 						<div class="col">
-							<label for="obrasocial2" class="form-label">Obra social secundaria (opcional)</label>
-							<input type="text" class="form-control" id="obrasocial2">
+							<label for="selectObraSocial2" class="form-label">Obra social secundaria (opcional)</label>
+							<select id="selectObraSocial2" class="form-select">
+								<option value="">Seleccione una obra social</option>
+							</select>
 						</div>
 					</div>
 					<div class="mb-1">
@@ -155,6 +172,8 @@
 	</main>
 	<script src="../js/header.js"></script>
 	<script src="../js/medicos.js"></script>
+	<script src="../js/especialidades.js"></script>
+	<script src="../js/obrasociales.js"></script>
 	<script src="../js/editarmedico.js"></script>
 	<script src="../js/validar_editar_medico.js"></script>
 	<script type="module" src="../js/login.js"></script>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Médico IDW</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Nueva Especialidad | Centro Médico IDW</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
-
 <body id="admin">
     <header>
         <div id="filas_header" class="row align-items-center">
@@ -23,14 +22,13 @@
                     <li><a href="../reservadeturnos/reservadeturnos.html">Turnos</a></li>
                     <li>
                         <a href="../login.html" id="login_item">
-                            <i class="fa-solid fa-user"></i>  Login
+                            <i class="fa-solid fa-user"></i> Login
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <nav class="sidebar d-flex flex-column p-3">
         <p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
         <div class="submenu">
@@ -38,20 +36,20 @@
         </div>
 
         <hr class="bg-light" />
-        
+
         <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
         <div class="submenu">
             <a href="visualizarreservas.html">Visualizar reservas</a>
         </div>
 
-        <hr class="bg-light">
+        <hr class="bg-light" />
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-clock me-2"></i>Turnos</p>
         <div class="submenu">
             <a href="turnos.html" class="active">Gestionar turnos</a>
         </div>
 
-        <hr class="bg-light">
+        <hr class="bg-light" />
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-user-doctor me-2"></i>Médicos</p>
         <div class="submenu">
@@ -61,7 +59,7 @@
             <a href="visualizarmedicos.html">Visualizar médicos</a>
         </div>
 
-        <hr class="bg-light">
+        <hr class="bg-light" />
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
         <div class="submenu">
@@ -71,7 +69,7 @@
             <a href="visualizarespecialidades.html">Visualizar especialidades</a>
         </div>
 
-        <hr class="bg-light">
+        <hr class="bg-light" />
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
         <div class="submenu">
@@ -84,32 +82,38 @@
     </nav>
 
     <main id="cuerpo">
-        <section class="container my-4">
-            <h2 class="text-center mb-4">LISTADO DE MÉDICOS</h2>
-
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle text-center">
-                    <thead class="table-primary">
-                        <tr>
-                            <th scope="col">Matrícula</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Especialidad</th>
-                            <th scope="col">Obra Social</th>
-                            <th scope="col">Valor Consulta</th>
-                            <th scope="col">Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla_medicos">
-                        <!-- Filas generadas con JS -->
-                    </tbody>
-                </table>
-            </div>
+        <section id="form_admin" class="container my-1 d-flex justify-content-center">
+            <form id="formEspecialidad" class="needs-validation p-4 my-3" novalidate>
+                <h2 class="text-center">REGISTRAR NUEVA ESPECIALIDAD</h2>
+                <fieldset class="p-2">
+                    <legend>Datos de la Especialidad</legend>
+                    <div class="mb-3">
+                        <label for="nombreEspecialidad" class="form-label">Nombre de la Especialidad</label>
+                        <input type="text" class="form-control" id="nombreEspecialidad" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcionEspecialidad" class="form-label">Descripción</label>
+                        <textarea
+                            class="form-control"
+                            id="descripcionEspecialidad"
+                            rows="3"
+                            placeholder="Breve descripción del área médica"
+                            required
+                        ></textarea>
+                    </div>
+                </fieldset>
+                <div class="p-2">
+                    <button id="btn_admin" type="submit" class="btn btn-primary w-100">
+                        Añadir Especialidad
+                    </button>
+                </div>
+            </form>
         </section>
     </main>
+
     <script src="../js/header.js"></script>
-    <script src="../js/medicos.js"></script>
-    <script src="../js/visualizarmedicos.js"></script>
+    <script src="../js/validar_alta_especialidad.js"></script>
+    <script src="../js/altaespecialidad.js"></script>
     <script type="module" src="../js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

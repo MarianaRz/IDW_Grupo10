@@ -19,7 +19,7 @@
                     <li><a href="../index.html">Inicio</a></li>
                     <li><a href="../institucional.html">Institucional</a></li>
                     <li><a href="../contacto.html">Contacto</a></li>
-                    <li><a href="../turnos/turnos.html">Turnos</a></li>
+                    <li><a href="../reservadeturnos/reservadeturnos.html">Turnos</a></li>
                     <li>
                         <a href="../login.html" id="login_item">
                             <i class="fa-solid fa-user"></i>  Login
@@ -31,9 +31,23 @@
     </header>
 
     <nav class="sidebar d-flex flex-column p-3">
+        <p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
+        <div class="submenu">
+            <a href="usuarios.html">Visualizar usuarios</a>
+        </div>
+
+        <hr class="bg-light" />
+
         <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
         <div class="submenu">
-            <a href="visualizarturnos.html">Visualizar turnos</a>
+            <a href="visualizarreservas.html">Visualizar reservas</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-clock me-2"></i>Turnos</p>
+        <div class="submenu">
+            <a href="turnos.html" class="active">Gestionar turnos</a>
         </div>
 
         <hr class="bg-light">
@@ -50,25 +64,22 @@
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
         <div class="submenu">
-            <a href="#">Registrar nueva</a>
-            <a href="#">Editar existente</a>
-            <a href="#">Eliminar especialidad</a>
-            <a href="#">Visualizar especialidades</a>
+            <a href="altaespecialidad.html">Registrar nueva</a>
+            <a href="editarespecialidad.html">Editar existente</a>
+            <a href="eliminarespecialidad.html">Eliminar especialidad</a>
+            <a href="visualizarespecialidades.html">Visualizar especialidades</a>
         </div>
 
         <hr class="bg-light">
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
         <div class="submenu">
-            <a href="#">Registrar nueva</a>
-            <a href="#">Editar existente</a>
-            <a href="#">Eliminar obra social</a>
-            <a href="#">Visualizar obras sociales</a>
+            <a href="altaobrasocial.html">Registrar nueva</a>
+            <a href="editarobrasocial.html">Editar existente</a>
+            <a href="eliminarobrasocial.html">Eliminar obra social</a>
+            <a href="visualizarobrasociales.html">Visualizar obras sociales</a>
         </div>
 
-        <hr class="bg-light">
-
-        <a href="../index.html"><i class="fa-solid fa-arrow-left me-2"></i>Volver al inicio</a>
     </nav>
 
     <main id="cuerpo">
@@ -112,7 +123,7 @@
                         ⚠️ Esta acción eliminará al médico de forma permanente.
                     </div>
                     <div class="d-flex justify-content-center mt-3">
-                        <button id="btn_eliminar" type="button" class="btn btn-danger">
+                        <button id="btn_eliminar" type="button" class="btn btn-danger w-100">
                             <i class="fa-solid fa-trash me-1"></i>Eliminar médico
                         </button>
                     </div>

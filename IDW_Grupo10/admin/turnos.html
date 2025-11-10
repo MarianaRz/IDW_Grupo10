@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico - Gestionar Turnos</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .badge-disponible {
+            background-color: #28a745;
+        }
+        .badge-ocupado {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body id="admin">
+    <header>
+        <div id="filas_header" class="row align-items-center">
+            <div class="col-12 col-sm-4">
+                <h1 class="logo">Centro Médico</h1>
+            </div>
+            <nav class="col-12 col-sm-8">
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../institucional.html">Institucional</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../reservadeturnos/reservadeturnos.html">Turnos</a></li>
+                    <li>
+                        <a href="../login.html" id="login_item">
+                            <i class="fa-solid fa-user"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sidebar d-flex flex-column p-3">
+        <p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
+        <div class="submenu">
+            <a href="usuarios.html">Visualizar usuarios</a>
+        </div>
+
+        <hr class="bg-light" />
+        
+        <p class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2"></i>Reservas</p>
+        <div class="submenu">
+            <a href="visualizarreservas.html">Visualizar reservas</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-clock me-2"></i>Turnos</p>
+        <div class="submenu">
+            <a href="turnos.html" class="active">Gestionar turnos</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-user-doctor me-2"></i>Médicos</p>
+        <div class="submenu">
+            <a href="altamedicos.html">Registrar nuevo</a>
+            <a href="editarmedico.html">Editar existente</a>
+            <a href="eliminarmedico.html">Eliminar médico</a>
+            <a href="visualizarmedicos.html">Visualizar médicos</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-stethoscope me-2"></i>Especialidades</p>
+        <div class="submenu">
+            <a href="altaespecialidad.html">Registrar nueva</a>
+            <a href="editarespecialidad.html">Editar existente</a>
+            <a href="eliminarespecialidad.html">Eliminar especialidad</a>
+            <a href="visualizarespecialidades.html">Visualizar especialidades</a>
+        </div>
+
+        <hr class="bg-light">
+
+        <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
+        <div class="submenu">
+            <a href="altaobrasocial.html">Registrar nueva</a>
+            <a href="editarobrasocial.html">Editar existente</a>
+            <a href="eliminarobrasocial.html">Eliminar obra social</a>
+            <a href="visualizarobrasociales.html">Visualizar obras sociales</a>
+        </div>
+
+        <hr class="bg-light">
+
+    </nav>
+
+    <main id="cuerpo" class="container my-4">
+        <h2 class="text-center mb-4">GESTIÓN DE TURNOS</h2>
+
+        <!-- Formulario para crear turno -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-plus-circle"></i> Crear Nuevo Turno</h5>
+                <form id="formTurnoIndividual">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Médico</label>
+                            <select class="form-select" id="medicoIndividual" required>
+                                <option value="">Seleccione un médico...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label class="form-label">Tipo</label>
+                            <select class="form-select" id="tipoTurno" required>
+                                <option value="unico">Único día</option>
+                                <option value="siempre">Siempre (Todos los días)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3" id="contenedorFecha">
+                            <label class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="fechaIndividual">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label class="form-label">Horario</label>
+                            <input type="time" class="form-control" id="horarioIndividual" required>
+                        </div>
+                        <div class="col-md-3 mb-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-plus"></i> Crear Turno
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted" id="infoTipo">
+                                <i class="fas fa-info-circle"></i> Creará un turno para el día seleccionado.
+                            </small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-filter"></i> Filtros</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Filtrar por Médico</label>
+                        <select class="form-select" id="filtroMedico">
+                            <option value="">Todos los médicos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Filtrar por Fecha</label>
+                        <input type="date" class="form-control" id="filtroFecha">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Estado</label>
+                        <select class="form-select" id="filtroEstado">
+                            <option value="">Todos</option>
+                            <option value="disponible">Disponibles</option>
+                            <option value="ocupado">Ocupados</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3 d-flex align-items-end">
+                        <button class="btn btn-primary w-100" id="btnFiltrar">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table border">
+                        <thead>
+                            <tr>
+                                <th>Médico</th>
+                                <th>Especialidad</th>
+                                <th>Fecha</th>
+                                <th>Horario</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaTurnos">
+                            <!-- Los turnos se cargarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="sinResultados" class="alert alert-info d-none">
+                    <i class="fas fa-info-circle"></i> No se encontraron turnos con los filtros seleccionados.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para editar turno -->
+    <div class="modal fade" id="modalEditarTurno" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Turno</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarTurno">
+                        <input type="hidden" id="editarTurnoId">
+                        <div class="mb-3">
+                            <label class="form-label">Médico</label>
+                            <select class="form-select" id="editarMedico" required>
+                                <option value="">Seleccione un médico...</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="editarFecha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Horario</label>
+                            <input type="time" class="form-control" id="editarHorario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Estado</label>
+                            <select class="form-select" id="editarDisponible" required>
+                                <option value="true">Disponible</option>
+                                <option value="false">No Disponible</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardarEdicion">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/medicos.js"></script>
+    <script src="../js/especialidades.js"></script>
+    <script src="../js/obrasociales.js"></script>
+    <script src="../js/turnos.js"></script>
+    <script src="../js/adminturnos.js"></script>
+    <script type="module" src="../js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

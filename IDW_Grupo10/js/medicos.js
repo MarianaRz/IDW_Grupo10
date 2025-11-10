@@ -1,10 +1,11 @@
 const MEDICOS_BASE = [
   {
-    matricula: 9101,
+    id: 1,
+    matricula: 1111,
     apellido: "Lopez",
     nombre: "Martin",
-    especialidad: "Clínica General",
-    obraSocial: ["Osde", "Pami"],
+    especialidad: 1, // Clínica General
+    obraSocial: [1, 2], // OSDE, PAMI
     valorConsulta: 7200,
     descripcion: "Medico clinico especializado en tercera edad.",
     email: "martin.lopez@centromedico.com",
@@ -12,11 +13,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor1.jpg"
   },
   {
-    matricula: 5678,
+    id: 2,
+    matricula: 2222,
     apellido: "Medina",
     nombre: "Javier",
-    especialidad: "Pediatría",
-    obraSocial: ["Apross", "SwissMedical"],
+    especialidad: 2, // Pediatría
+    obraSocial: [3, 4], // Apross, SwissMedical
     valorConsulta: 6800,
     descripcion: "Pediatra enfocado en desarrollo infantil.",
     email: "javier.medina@centromedico.com",
@@ -24,11 +26,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor2.jpg"
   },
   {
-    matricula: 1234,
+    id: 3,
+    matricula: 3333,
     apellido: "Gómez",
     nombre: "Ricardo",
-    especialidad: "Cardiología",
-    obraSocial: ["Galeno", "SwissMedical"],
+    especialidad: 3, // Cardiología
+    obraSocial: [5, 4], // Galeno, SwissMedical
     valorConsulta: 7500,
     descripcion: "Especialista en cardiología con 10 años de experiencia.",
     email: "ricardo.gomez@centromedico.com",
@@ -36,11 +39,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor3.jpg"
   },
   {
-    matricula: 1111,
+    id: 4,
+    matricula: 4444,
     apellido: "Rojas",
     nombre: "Cecilia",
-    especialidad: "Oftalmología",
-    obraSocial: ["Medife","Osde"],
+    especialidad: 4, // Oftalmología
+    obraSocial: [6, 1], // Medife, OSDE
     valorConsulta: 7000,
     descripcion: "Especialista en oftalmología con 8 años de experiencia.",
     email: "cecilia.rojas@centromedico.com",
@@ -48,11 +52,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor4.jpg"
   },
   {
-    matricula: 2222,
+    id: 5,
+    matricula: 5555,
     apellido: "Torres",
     nombre: "Santiago",
-    especialidad: "Odontología",
-    obraSocial: ["Ioma", "Omint"],
+    especialidad: 5, // Odontología
+    obraSocial: [8, 7], // IOMA, Omint
     valorConsulta: 6500,
     descripcion: "Odontólogo con 12 años de experiencia en clínica dental.",
     email: "santiago.torres@centromedico.com",
@@ -60,11 +65,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor5.jpg"
   },
   {
-    matricula: 3333,
+    id: 6,
+    matricula: 6666,
     apellido: "Suárez",
     nombre: "Valeria",
-    especialidad: "Traumatología",
-    obraSocial: ["Pami", "Premedic"],
+    especialidad: 6, // Traumatología
+    obraSocial: [2, 9], // PAMI, Premedic
     valorConsulta: 7000,
     descripcion: "Traumatóloga especializada en lesiones deportivas.",
     email: "valeria.suarez@centromedico.com",
@@ -72,11 +78,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor6.jpg"
   },
   {
-    matricula: 4444,
+    id: 7,
+    matricula: 7777,
     apellido: "Fernandez",
     nombre: "Laura",
-    especialidad: "Cirugía General",
-    obraSocial: ["Apross", "Osde"],
+    especialidad: 1, // Clínica General (Cirugía General no existe en especialidades.js)
+    obraSocial: [3, 1], // Apross, OSDE
     valorConsulta: 8000,
     descripcion: "Cirujana general con 15 años de experiencia.",
     email: "laura.fernandez@centromedico.com",
@@ -84,11 +91,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor7.jpg"
   },
   {
-    matricula: 5555,
+    id: 8,
+    matricula: 8888,
     apellido: "Castillo",
     nombre: "Mariana",
-    especialidad: "Oncología",
-    obraSocial: ["SwissMedical", "Galeno"],
+    especialidad: 1, // Clínica General (Oncología no existe en especialidades.js)
+    obraSocial: [4, 5], // SwissMedical, Galeno
     valorConsulta: 9500,
     descripcion: "Oncóloga con amplia experiencia en tratamientos modernos.",
     email: "mariana.castillo@centromedico.com",
@@ -96,11 +104,12 @@ const MEDICOS_BASE = [
     img: "imagen/doctor8.jpg"
   },
   {
-    matricula: 6666,
+    id: 9,
+    matricula: 9999,
     apellido: "Paredes",
     nombre: "Leonardo",
-    especialidad: "Pediatría",
-    obraSocial: ["Medife", "Osde"],
+    especialidad: 2, // Pediatría
+    obraSocial: [6, 1], // Medife, OSDE
     valorConsulta: 6800,
     descripcion: "Pediatra con 10 años de experiencia en atención infantil.",
     email: "leonardo.paredes@centromedico.com",
@@ -108,14 +117,15 @@ const MEDICOS_BASE = [
     img: "imagen/doctor9.jpg"
   },
   {
-    matricula: 7777,
+    id: 10,
+    matricula: 1010,
     apellido: "Vega",
-    nombre: "Natalia",
-    especialidad: "Cardiología",
-    obraSocial: ["Osapm", "Osde"],
+    nombre: "Juan",
+    especialidad: 3, // Cardiología
+    obraSocial: [10, 1], // OSAPM, OSDE
     valorConsulta: 7600,
-    descripcion: "Cardióloga con 12 años de experiencia en cardiología clínica.",
-    email: "natalia.vega@centromedico.com",
+    descripcion: "Cardiólogo con 12 años de experiencia en cardiología clínica.",
+    email: "juan.vega@centromedico.com",
     telefono: "1123456789",
     img: "imagen/doctor10.jpg"
   }

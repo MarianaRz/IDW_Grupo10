@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </ul>
       </div>
     `;
+    
 
     if (usuario_logeado.toLowerCase() === "emilys") {
       if (!document.getElementById("admin_item")) {
@@ -80,10 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+  function irAlInicio() {
+    const ruta = window.location.pathname;
+
+    // Si la URL actual incluye "/admin/" o "/reservadeturnos/", sube un nivel
+    if (ruta.includes("/admin/") || ruta.includes("/reservadeturnos/")) {
+      window.location.href = "../index.html";
+    } else {
+      window.location.href = "index.html";
+    }
+  }
+
     const cerrar_sesion = document.getElementById("cerrar_sesion");
     cerrar_sesion.addEventListener("click", function () {
       sessionStorage.clear();
-      window.location.href = "/index.html";
+      irAlInicio();
     });
   }
 });

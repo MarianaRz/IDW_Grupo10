@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Médico IDW</title>
+    <title>Centro Médico IDW - Reservas</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body id="admin">
     <header>
         <div id="filas_header" class="row align-items-center">
@@ -23,14 +22,13 @@
                     <li><a href="../reservadeturnos/reservadeturnos.html">Turnos</a></li>
                     <li>
                         <a href="../login.html" id="login_item">
-                            <i class="fa-solid fa-user"></i>  Login
+                            <i class="fa-solid fa-user"></i> Login
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <nav class="sidebar d-flex flex-column p-3">
         <p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
         <div class="submenu">
@@ -82,34 +80,34 @@
         </div>
 
     </nav>
-
-    <main id="cuerpo">
-        <section class="container my-4">
-            <h2 class="text-center mb-4">LISTADO DE MÉDICOS</h2>
-
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle text-center">
-                    <thead class="table-primary">
-                        <tr>
-                            <th scope="col">Matrícula</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Especialidad</th>
-                            <th scope="col">Obra Social</th>
-                            <th scope="col">Valor Consulta</th>
-                            <th scope="col">Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla_medicos">
-                        <!-- Filas generadas con JS -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <main id="cuerpo" class="container my-4">
+        <h2 class="text-center mb-4">LISTADO DE TURNOS</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Teléfono</th>
+                        <th>Obra Social</th>
+                        <th>Médico</th>
+                        <th>Especialidad</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Valor Consulta</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla_turnos">
+                    <!-- Filas generadas con JS -->
+                </tbody>
+            </table>
+        </div>
     </main>
     <script src="../js/header.js"></script>
-    <script src="../js/medicos.js"></script>
-    <script src="../js/visualizarmedicos.js"></script>
+    <script src="../js/reservadeturnos.js"></script>
+    <script src="../js/visualizarreservas.js"></script>
     <script type="module" src="../js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

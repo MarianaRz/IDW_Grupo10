@@ -33,15 +33,19 @@ function validarFormulario() {
   limpiarValidaciones();
 
   let valido = true;
+  
+  // ✅ CAMBIO: IDs corregidos para coincidir con altamedicos.js
   const campos = {
     nombre: document.getElementById("nombre"),
     apellido: document.getElementById("apellido"),
     email: document.getElementById("email"),
     telefono: document.getElementById("telefono"),
     matricula: document.getElementById("matricula"),
-    especialidad: document.getElementById("especialidad"),
-    obrasocial: document.getElementById("obrasocial"),
+    especialidad: document.getElementById("selectEspecialidad"),  // ← CAMBIO
+    obrasocial: document.getElementById("selectObraSocial"),      // ← CAMBIO
     descripcion: document.getElementById("descripcion"),
+    foto: document.getElementById("foto"),
+    consulta: document.getElementById("consulta")
   };
 
   if (!campos.nombre.value.trim() || campos.nombre.value.trim().length < 2) {
@@ -70,12 +74,12 @@ function validarFormulario() {
   } else marcarOk(campos.matricula);
 
   if (!campos.especialidad.value.trim()) {
-    marcarError(campos.especialidad, "Debe ingresar la especialidad");
+    marcarError(campos.especialidad, "Debe seleccionar una especialidad");
     valido = false;
   } else marcarOk(campos.especialidad);
 
   if (!campos.obrasocial.value.trim()) {
-    marcarError(campos.obrasocial, "Debe ingresar la obra social");
+    marcarError(campos.obrasocial, "Debe seleccionar al menos una obra social");
     valido = false;
   } else marcarOk(campos.obrasocial);
 

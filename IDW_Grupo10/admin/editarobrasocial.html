@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Medico IDW</title>
+    <title>Centro Médico IDW</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -29,6 +29,7 @@
             </nav>
         </div>
     </header>
+
     <nav class="sidebar d-flex flex-column p-3">
         <p class="fw-bold mb-1"><i class="fa-solid fa-user me-2"></i>Usuarios</p>
         <div class="submenu">
@@ -73,91 +74,74 @@
 
         <p class="fw-bold mb-1"><i class="fa-solid fa-briefcase-medical me-2"></i>Obras Sociales</p>
         <div class="submenu">
-            <a href="altaobrasocial.html">Registrar nueva</a>
+            <a href="obrasocial.html">Registrar nueva</a>
             <a href="editarobrasocial.html">Editar existente</a>
             <a href="eliminarobrasocial.html">Eliminar obra social</a>
             <a href="visualizarobrasociales.html">Visualizar obras sociales</a>
         </div>
-
     </nav>
+
     <main id="cuerpo">
         <section id="form_admin" class="container my-1 d-flex justify-content-center">
-        <form class="needs-validation p-4 my-3" novalidate>
-            <h2 class="text-center">REGISTRAR NUEVO MEDICO</h2>
-            <fieldset class="p-2">
-                <legend>DATOS PERSONALES</legend>
-                <div class="row mb-1">
-                    <div class="col">
+            <form id="form_editar" class="needs-validation p-4 my-3" novalidate>
+                <h2 class="text-center">EDITAR OBRA SOCIAL</h2>
+
+                <fieldset class="p-2 mb-3">
+                    <legend>BUSCAR OBRA SOCIAL</legend>
+                    <div class="row">
+                        <div class="col">
+                            <label for="buscar_nombre" class="form-label">Nombre de la Obra Social</label>
+                            <input type="text" class="form-control" id="buscar_nombre" required>
+                        </div>
+                        <div class="col d-flex align-items-end">
+                            <button id="btn_buscar" type="button" class="btn btn-secondary w-100">Cargar datos</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="p-2" id="datos_obra">
+                    <div class="mb-1">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" required>
                     </div>
-                    <div class="col">
-                        <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" required>
-                    </div>
-                </div>
-                <div class="mb-1">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-                <div class="mb-1">
-                    <label for="telefono" class="form-label">Telefono</label>
-                    <input type="tel" class="form-control" id="telefono" required>
-                </div>
-            </fieldset>
 
-            <fieldset class="p-2">
-                <legend>INFORMACION MEDICA</legend>
-                <div class="row mb-1">
-                    <div class="col">
-                        <label for="matricula" class="form-label">Matricula profesional</label>
-                    <input type="number" class="form-control" id="matricula" required>
+                    <div class="mb-1">
+                        <label for="porcentaje" class="form-label">Porcentaje de descuento (%)</label>
+                        <input type="number" class="form-control" id="porcentaje" min="0" max="100" required>
                     </div>
-                    <div class="col">
-                        <label for="consulta" class="form-label">Valor de consulta</label>
-                        <input type="number" class="form-control" id="consulta">
-                    </div>
-                </div>
-                <div class="mb-1">
-                    <label for="selectEspecialidad" class="form-label">Especialidad</label>
-                    <select id="selectEspecialidad" class="form-select" required>
-                        <option value="">Seleccione una especialidad </option>
-                    </select>
-                </div>
-                <div class="row mb-1">
-                    <div class="col">
-                        <label for="selectObraSocial" class="form-label">Obra Social</label>
-                        <select id="selectObraSocial" class="form-select" required>
-                            <option value="">Seleccione una obra social</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                         <label for="selectObraSocial2" class="form-label">Obra Social secundaria (opcional)</label>
-                        <select id="selectObraSocial2" class="form-select">
-                            <option value="">Seleccione una obra social</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mb-1">
-                    <label for="descripcion" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="descripcion" rows="3" placeholder="Breve presentación del profesional" required></textarea>
-                </div>
-                <div class="mt-2 d-flex flex-column">
-                    <label for="foto" class="form-label mb-2">Subir fotografía</label>
-                    <input type="file" id="foto" class="form-control w-100">
-                </div>
-            </fieldset>
 
-            <div class="p-2">
-                <button id="btn_admin" type="submit" class="btn btn-primary">Añadir</button>
-            </div>
-        </form>
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="url" class="form-label">Sitio web oficial</label>
+                        <input type="url" class="form-control" id="url" placeholder="https://www.ejemplo.com">
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descripcion" rows="3" placeholder="Breve descripción de la obra social"></textarea>
+                    </div>
+
+                    <div class="mb-1 d-flex flex-column">
+                        <label for="foto" class="form-label mb-2">Subir fotografía (logo)</label>
+                        <input type="file" id="foto" class="form-control w-100">
+                    </div>
+                    <div class="p-2">
+                        <button id="btn_admin" type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </fieldset>
+            </form>
         </section>
     </main>
+
     <script src="../js/header.js"></script>
-    <script src="../js/medicos.js"></script>
-    <script src="../js/validar_alta_medico.js"></script>
-    <script src="../js/altamedicos.js"></script>
+    <script src="../js/obrasociales.js"></script>
+    <script src="../js/editarobrasocial.js"></script>
+    <script src="../js/validar_editar_obra_social.js"></script>
     <script type="module" src="../js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
