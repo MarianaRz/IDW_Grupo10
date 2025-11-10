@@ -35,7 +35,8 @@ function validarFormulario() {
     direccion: document.getElementById("direccion"),
     telefono: document.getElementById("telefono"),
     email: document.getElementById("email"),
-    porcentaje: document.getElementById("porcentaje")
+    porcentaje: document.getElementById("porcentaje"),
+    url: document.getElementById("url")
   };
 
   // Verificación general
@@ -72,6 +73,12 @@ function validarFormulario() {
     marcarError(campos.porcentaje, "Porcentaje inválido (0-100)");
     valido = false;
   } else marcarOk(campos.porcentaje);
+
+  const urlPattern = /^(https?:\/\/)([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+  if (!urlPattern.test(campos.url.value.trim())) {
+    marcarError(campos.url, "Ingrese una URL válida (ej: https://www.ejemplo.com)");
+    valido = false;
+  } else marcarOk(campos.url);
 
   return valido;
 }

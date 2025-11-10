@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const formEditar = document.getElementById("form_editar");
   const datosObra = document.getElementById("datos_obra");
   const inputBuscar = document.getElementById("buscar_nombre");
+  const inputFoto = document.getElementById("foto");
 
   let obraActual = null;
 
@@ -18,14 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("telefono").value = obraActual.telefono || "";
       document.getElementById("email").value = obraActual.email || "";
       document.getElementById("porcentaje").value = obraActual.porcentaje || 0;
+      document.getElementById("url").value = obraActual.url || "";
     } else {
       alert("No se encontró la obra social ❌");
       datosObra.style.display = "none";
     }
   });
 
-  formEditar.addEventListener("submit", (e) => {
+  function convertirImagenABase64(archivo) {
+    return new Promise((resolve, reject) => {
+      const lector = new FileReader();
+      lector.onload = () => resolve(lector.result);
+      lector.onerror = reject;
+      lector.readAsDataURL(archivo);
+    });
+  }
+
+  formEditar.addEventListener("submit", async (e) => {
     e.preventDefault();
+
 
     if (!obraActual) {
       alert("Primero busque una obra social para editar.");
@@ -46,13 +58,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    let nuevaImagen = obraActual.img;
+    const archivo = inputFoto.files[0];
+    if (archivo) {
+      nuevaImagen = await convertirImagenABase64(archivo);
+    }
+
+
     obras[index] = {
       ...obraActual,
       nombre: document.getElementById("nombre").value.trim(),
       direccion: document.getElementById("direccion").value.trim(),
       telefono: document.getElementById("telefono").value.trim(),
       email: document.getElementById("email").value.trim(),
-      porcentaje: parseFloat(document.getElementById("porcentaje").value)
+      porcentaje: parseFloat(document.getElementById("porcentaje").value),
+      img: nuevaImagen,
+      url: document.getElementById("url").value.trim() || "#"
     };
 
     localStorage.setItem("obrasSociales", JSON.stringify(obras));

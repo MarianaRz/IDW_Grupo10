@@ -1,73 +1,103 @@
 const OBRAS_SOCIALES_BASE = [
   {
-    nombre: "Osde",
-    direccion: "Av. Corrientes 1234, Buenos Aires",
-    telefono: "1145678900",
+    id: 1,
+    nombre: "OSDE",
+    direccion: "Av. Colón 1234, Córdoba",
+    telefono: "0810-555-6733",
     email: "contacto@osde.com.ar",
-    porcentaje: 20
+    porcentaje: 20,
+    url: "https://www.osde.com.ar/",
+    img: "imagen/osde.png"
   },
   {
-    nombre: "Pami",
-    direccion: "Calle San Martín 987, Córdoba",
-    telefono: "3516789012",
-    email: "info@pami.gob.ar",
-    porcentaje: 30
+    id: 2,
+    nombre: "PAMI",
+    direccion: "Bv. Illia 240, Córdoba",
+    telefono: "0800-222-7264",
+    email: "info@pami.org.ar",
+    porcentaje: 30,
+    url: "https://www.pami.org.ar/",
+    img: "imagen/pami.png"
   },
   {
-    nombre: "Galeno",
-    direccion: "Av. Santa Fe 2450, Buenos Aires",
-    telefono: "1134567890",
-    email: "atencion@galeno.com.ar",
-    porcentaje: 15
-  },
-  {
-    nombre: "Swiss Medical",
-    direccion: "Bv. Illia 1555, Córdoba",
-    telefono: "3512345678",
-    email: "info@swissmedical.com.ar",
-    porcentaje: 25
-  },
-  {
-    nombre: "Medife",
-    direccion: "Av. Colón 3456, Rosario",
-    telefono: "3414567890",
-    email: "contacto@medife.com.ar",
-    porcentaje: 18
-  },
-  {
-    nombre: "IOMA",
-    direccion: "Calle 7 N° 1075, La Plata",
-    telefono: "2215678901",
-    email: "info@ioma.gba.gov.ar",
-    porcentaje: 22
-  },
-  {
-    nombre: "OMINT",
-    direccion: "Av. Callao 1230, Buenos Aires",
-    telefono: "1123456789",
-    email: "contacto@omint.com.ar",
-    porcentaje: 20
-  },
-  {
-    nombre: "Premedic",
-    direccion: "Bv. San Juan 230, Córdoba",
-    telefono: "3519012345",
-    email: "info@premedic.com.ar",
-    porcentaje: 17
-  },
-  {
+    id: 3,
     nombre: "Apross",
-    direccion: "Calle Belgrano 432, Córdoba",
-    telefono: "3516789054",
-    email: "contacto@apross.gov.ar",
-    porcentaje: 28
+    direccion: "Av. Vélez Sarsfield 576, Córdoba",
+    telefono: "0800-888-2776",
+    email: "consultas@apross.gov.ar",
+    porcentaje: 25,
+    url: "https://www.apross.gov.ar/",
+    img: "imagen/apross.png"
   },
   {
+    id: 4,
+    nombre: "Swiss Medical",
+    direccion: "Av. Hipólito Yrigoyen 490, Córdoba",
+    telefono: "0810-444-7700",
+    email: "contacto@swissmedical.com.ar",
+    porcentaje: 15,
+    url: "https://www.swissmedicalseguros.com/",
+    img: "imagen/swissmedical.png"
+  },
+  {
+    id: 5,
+    nombre: "Galeno",
+    direccion: "Av. Chacabuco 830, Córdoba",
+    telefono: "0810-777-4253",
+    email: "info@galeno.com.ar",
+    porcentaje: 10,
+    url: "https://www.planes-galeno.com.ar/",
+    img: "imagen/galeno.png"
+  },
+  {
+    id: 6,
+    nombre: "Medife",
+    direccion: "9 de Julio 325, Córdoba",
+    telefono: "0810-333-2700",
+    email: "atencion@medife.com.ar",
+    porcentaje: 18,
+    url: "https://www.medife.com.ar/",
+    img: "imagen/medife.png"
+  },
+  {
+    id: 7,
+    nombre: "Omint",
+    direccion: "Ituzaingó 550, Córdoba",
+    telefono: "0810-666-6468",
+    email: "clientes@omint.com.ar",
+    porcentaje: 12,
+    url: "https://www.omint.com.ar/PlanDeSalud/",
+    img: "imagen/omint.png"
+  },
+  {
+    id: 8,
+    nombre: "IOMA",
+    direccion: "Av. General Paz 105, Córdoba",
+    telefono: "0800-333-4662",
+    email: "info@ioma.gba.gov.ar",
+    porcentaje: 20,
+    url: "https://www.ioma.gba.gob.ar/",
+    img: "imagen/ioma.png"
+  },
+  {
+    id: 9,
+    nombre: "Premedic",
+    direccion: "Av. Sabattini 402, Córdoba",
+    telefono: "0810-999-1360",
+    email: "atencion@premedic.com.ar",
+    porcentaje: 10,
+    url: "https://www.grupopremedic.com.ar/padmin/newWeb/Home",
+    img: "imagen/premedic.png"
+  },
+  {
+    id: 10,
     nombre: "OSAPM",
-    direccion: "Calle Tucumán 800, Rosario",
-    telefono: "3418901234",
-    email: "osapm@obra.com.ar",
-    porcentaje: 10
+    direccion: "Av. Juan B. Justo 845, Córdoba",
+    telefono: "0800-999-6727",
+    email: "contacto@osapm.org",
+    porcentaje: 15,
+    url: "https://osapm.org/#/homeV4",
+    img: "imagen/osapm.png"
   }
 ];
 

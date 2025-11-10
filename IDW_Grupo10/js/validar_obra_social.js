@@ -23,15 +23,12 @@ function marcarOk(elemento) {
 
 function limpiarValidaciones() {
   const form = document.getElementById("form_admin");
-  if (!form) return;
-
-  form.querySelectorAll(".text-danger").forEach(el => el.remove());
-  form.querySelectorAll(".is-invalid, .is-valid")
-      .forEach(el => el.classList.remove("is-invalid", "is-valid"));
+  form.querySelectorAll(".text-danger, .text-success").forEach(el => el.remove());
+  form.querySelectorAll(".is-invalid, .is-valid").forEach(el => el.classList.remove("is-invalid", "is-valid"));
 }
 
 function validarFormulario() {
-  const form = document.getElementById("form_admin");
+  const form = document.getElementById("formObraSocial");
   if (!form) return false;
 
   limpiarValidaciones();
@@ -43,6 +40,7 @@ function validarFormulario() {
     telefono: document.getElementById("telefono"),
     email: document.getElementById("email"),
     porcentaje: document.getElementById("porcentaje"),
+    url: document.getElementById("url")
   };
 
   if (!campos.nombre.value.trim() || campos.nombre.value.trim().length < 2) {
@@ -66,15 +64,19 @@ function validarFormulario() {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campos.email.value)) {
     marcarError(campos.email, "Correo electrónico inválido");
     valido = false;
-  } else {
-    marcarOk(campos.email);
-  }
+  } else marcarOk(campos.email);
 
   const porcentajeValor = parseFloat(campos.porcentaje.value);
   if (isNaN(porcentajeValor) || porcentajeValor < 0 || porcentajeValor > 100) {
     marcarError(campos.porcentaje, "El porcentaje debe estar entre 0 y 100");
     valido = false;
   } else marcarOk(campos.porcentaje);
+
+  const urlPattern = /^(https?:\/\/)([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+  if (!urlPattern.test(campos.url.value.trim())) {
+    marcarError(campos.url, "Ingrese una URL válida (ej: https://www.ejemplo.com)");
+    valido = false;
+  } else marcarOk(campos.url);
 
   return valido;
 }
