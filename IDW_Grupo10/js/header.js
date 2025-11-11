@@ -1,16 +1,17 @@
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 const sidebar = document.querySelector('.sidebar');
+const sidebarBtn = document.querySelector('.sidebar-btn');
 
 let lastScrollTop = 0;
 let isMenuVisible = true;
 
-// Verifica si es móvil/tablet
+// verifica si es móvil/tablet
 function isMobileOrTablet() {
     return window.innerWidth <= 900;
 }
 
-// Ajusta padding del main y top/height del sidebar según altura actual del header
+// ajusta padding del main y top/height del sidebar según altura actual del header
 function actualizarEspaciado() {
     const alturaHeader = header.offsetHeight;
     if (main) main.style.paddingTop = `${alturaHeader}px`;
@@ -18,9 +19,16 @@ function actualizarEspaciado() {
         sidebar.style.top = `${alturaHeader}px`;
         sidebar.style.height = `calc(100vh - ${alturaHeader}px)`;
     }
+
+      if (sidebarBtn) {
+        sidebarBtn.style.position = "fixed";
+        sidebarBtn.style.top = `${alturaHeader + 10}px`; 
+        sidebarBtn.style.left = "1rem";
+        sidebarBtn.style.zIndex = "2000"; 
+    }
 }
 
-// Toggle del menú solo para pantallas ≤900px
+// toggle del menú 
 function toggleMenu(show) {
     if (!isMobileOrTablet()) return;
 
@@ -43,7 +51,7 @@ function toggleMenu(show) {
     actualizarEspaciado();
 }
 
-// Scroll: solo oculta nav si estamos en móvil/tablet
+// scroll: solo oculta nav si estamos en móvil/tablet
 window.addEventListener('scroll', () => {
     if (!isMobileOrTablet()) return;
 
@@ -57,7 +65,7 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
-// Click en logo para mostrar/ocultar nav solo en móvil/tablet
+// click en logo para mostrar/ocultar nav solo en móvil/tablet
 document.querySelector('.logo').addEventListener('click', (e) => {
     if (!isMobileOrTablet()) return;
 
@@ -65,20 +73,18 @@ document.querySelector('.logo').addEventListener('click', (e) => {
     toggleMenu(!isMenuVisible);
 });
 
-// Observador para detectar cambios de altura del header
+// observador para detectar cambios de altura del header
 const resizeObserver = new ResizeObserver(() => {
     actualizarEspaciado();
 });
 
-// Inicializar observador
 if (header) resizeObserver.observe(header);
 
-// Ajuste inicial y al redimensionar
+// ajuste inicial
 window.addEventListener('load', actualizarEspaciado);
 window.addEventListener('resize', () => {
     actualizarEspaciado();
     if (!isMobileOrTablet()) {
-        // En desktop, aseguramos que nav siempre se vea
         const nav = header.querySelector('nav');
         nav.style.maxHeight = '';
         nav.style.opacity = '';

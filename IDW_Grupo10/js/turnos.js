@@ -1,16 +1,3 @@
-// turnos.js - Sistema de gestión de turnos del administrador
-
-// Estructura de un turno:
-// {
-//   id: number,
-//   medicoMatricula: number,
-//   fecha: "YYYY-MM-DD" | null,  // null = turno permanente
-//   horario: "HH:MM",
-//   disponible: boolean,
-//   permanente: boolean  // true = se repite todos los días
-// }
-
-// Inicializar turnos en localStorage si no existen
 if (!localStorage.getItem("turnosAdmin")) {
   localStorage.setItem("turnosAdmin", JSON.stringify([]));
 }
@@ -32,11 +19,10 @@ function generarIdTurno() {
   return turnos.length > 0 ? Math.max(...turnos.map(t => t.id)) + 1 : 1;
 }
 
-// Crear nuevo turno único (con fecha específica)
 function crearTurno(medicoMatricula, fecha, horario) {
   const turnos = obtenerTurnosAdmin();
   
-  // Verificar que no exista ya ese turno
+  // verificar que no exista ya ese turno
   const existe = turnos.some(t => 
     t.medicoMatricula === medicoMatricula && 
     t.fecha === fecha && 
@@ -62,11 +48,11 @@ function crearTurno(medicoMatricula, fecha, horario) {
   return { success: true, turno: nuevoTurno };
 }
 
-// Crear turno permanente (sin fecha, se repite siempre)
+// crear turno permanente (sin fecha, se repite siempre)
 function crearTurnoPermanente(medicoMatricula, horario) {
   const turnos = obtenerTurnosAdmin();
   
-  // Verificar que no exista ya un turno permanente con ese horario para el médico
+  // verificar que no exista ya 
   const existe = turnos.some(t => 
     t.medicoMatricula === medicoMatricula && 
     t.horario === horario &&
@@ -92,7 +78,7 @@ function crearTurnoPermanente(medicoMatricula, horario) {
   return { success: true, turno: nuevoTurno };
 }
 
-// Editar turno existente
+// editar turno existente
 function editarTurno(id, datos) {
   const turnos = obtenerTurnosAdmin();
   const index = turnos.findIndex(t => t.id === id);
@@ -100,8 +86,7 @@ function editarTurno(id, datos) {
   if (index === -1) {
     return { success: false, message: "Turno no encontrado" };
   }
-  
-  // Actualizar campos
+
   if (datos.medicoMatricula !== undefined) turnos[index].medicoMatricula = datos.medicoMatricula;
   if (datos.fecha !== undefined) turnos[index].fecha = datos.fecha;
   if (datos.horario !== undefined) turnos[index].horario = datos.horario;
@@ -111,7 +96,7 @@ function editarTurno(id, datos) {
   return { success: true, turno: turnos[index] };
 }
 
-// Eliminar turno
+// eliminar turno
 function eliminarTurno(id) {
   const turnos = obtenerTurnosAdmin();
   const index = turnos.findIndex(t => t.id === id);
@@ -126,16 +111,16 @@ function eliminarTurno(id) {
   return { success: true };
 }
 
-// Obtener turnos de un médico en una fecha específica (incluye permanentes)
+// obtener turnos de un médico en una fecha 
 function obtenerTurnosMedico(medicoMatricula, fecha) {
   const turnos = obtenerTurnosAdmin();
   return turnos.filter(t => 
     t.medicoMatricula === medicoMatricula && 
-    (t.fecha === fecha || t.permanente === true)  // Incluye turnos permanentes
+    (t.fecha === fecha || t.permanente === true)  
   );
 }
 
-// Marcar turno como no disponible (cuando se reserva)
+// marcar turno como no disponible
 function marcarTurnoComoReservado(medicoMatricula, fecha, horario) {
   const turnos = obtenerTurnosAdmin();
   const turno = turnos.find(t => 
@@ -150,7 +135,7 @@ function marcarTurnoComoReservado(medicoMatricula, fecha, horario) {
   }
 }
 
-// Marcar turno como disponible (cuando se cancela una reserva)
+// marcar turno como disponible cuando se cancela una reserva
 function marcarTurnoComoDisponible(medicoMatricula, fecha, horario) {
   const turnos = obtenerTurnosAdmin();
   const turno = turnos.find(t => 
@@ -165,7 +150,7 @@ function marcarTurnoComoDisponible(medicoMatricula, fecha, horario) {
   }
 }
 
-// Crear múltiples turnos (Útil para generar turnos de toda una semana)
+// crear múltiples turnos 
 function crearTurnosMultiples(medicoMatricula, fechaInicio, fechaFin, horarios) {
   const resultados = [];
   const fechaActual = new Date(fechaInicio + "T00:00:00");
@@ -174,7 +159,6 @@ function crearTurnosMultiples(medicoMatricula, fechaInicio, fechaFin, horarios) 
   while (fechaActual <= fechaFinal) {
     const dia = fechaActual.getDay();
     
-    // Solo días laborables (lunes a viernes)
     if (dia !== 0 && dia !== 6) {
       const fechaStr = fechaActual.toISOString().split('T')[0];
       

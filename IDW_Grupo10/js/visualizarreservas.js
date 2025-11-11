@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tabla = document.getElementById("tabla_turnos");
-
-  // obtener turnos del localStorage
   const turnos = JSON.parse(localStorage.getItem("turnos")) || [];
 
   if (turnos.length === 0) {

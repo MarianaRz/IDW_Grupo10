@@ -43,12 +43,10 @@ const ESPECIALIDADES = [
   }
 ];
 
-// 🔹 Si no hay especialidades en localStorage, cargamos las base
 if (!localStorage.getItem("especialidades")) {
   localStorage.setItem("especialidades", JSON.stringify(ESPECIALIDADES));
 }
 
-// 🔹 Funciones de manejo
 function obtenerEspecialidades() {
   try {
     return JSON.parse(localStorage.getItem("especialidades")) || [];
@@ -62,6 +60,5 @@ function guardarEspecialidades(lista) {
   localStorage.setItem("especialidades", JSON.stringify(lista));
 }
 
-// Exponer para uso global (igual que médicos)
 window.obtenerEspecialidades = obtenerEspecialidades;
 window.guardarEspecialidades = guardarEspecialidades;

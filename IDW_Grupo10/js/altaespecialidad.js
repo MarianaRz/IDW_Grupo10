@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const especialidades =
       JSON.parse(localStorage.getItem("especialidades")) || [];
 
-    // Verificar nombre duplicado
     const existe = especialidades.some(
       (esp) => esp.nombre.toLowerCase() === nombre.toLowerCase()
     );
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Calcular ID secuencial
+    // calcular ID 
     let nuevoId = 1;
     if (especialidades.length > 0) {
       const idsValidos = especialidades

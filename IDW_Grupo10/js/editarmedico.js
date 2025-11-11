@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let medicoActual = null;
 
-  // Cargar especialidades y obras sociales en los selects
+  // cargar especialidades y obras sociales en los selects
   const especialidades = JSON.parse(localStorage.getItem("especialidades")) || [];
   const obrasSociales = JSON.parse(localStorage.getItem("obrasSociales")) || [];
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Cargar datos en el formulario
+    // cargar datos en el formulario
     document.getElementById("nombre").value = medicoActual.nombre;
     document.getElementById("apellido").value = medicoActual.apellido;
     document.getElementById("email").value = medicoActual.email || "";
@@ -62,12 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("consulta").value = medicoActual.valorConsulta;
     document.getElementById("descripcion").value = medicoActual.descripcion;
 
-    // Cargar especialidad (ID)
+    // cargar especialidad por id
     if (especialidadSelect) {
       especialidadSelect.value = medicoActual.especialidad || "";
     }
 
-    // Cargar obras sociales (array de IDs)
+    // cargar obras sociales por id
     if (Array.isArray(medicoActual.obraSocial)) {
       if (obra1Select && medicoActual.obraSocial[0]) {
         obra1Select.value = medicoActual.obraSocial[0];
@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Validación antes de guardar
     const esValido = validarFormulario();
     if (!esValido) {
       alert("Por favor, complete correctamente todos los campos antes de guardar.");
@@ -96,14 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let medicos = obtenerMedicos();
     const indice = medicos.findIndex(m => m.matricula === medicoActual.matricula);
 
-    // Leer imagen si se subió una nueva
+    // leer imagen si se subió una nueva
     const archivo = document.getElementById("foto")?.files[0];
     let imagenBase64 = medicoActual.img || "";
     if (archivo) {
       imagenBase64 = await convertirImagenABase64(archivo);
     }
 
-    // Obtener obras sociales seleccionadas
+    // obtener obras sociales seleccionadas
     const obra1Id = obra1Select.value;
     const obra2Id = obra2Select.value;
     const obrasSeleccionadas = [];

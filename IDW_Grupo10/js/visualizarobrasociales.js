@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tabla = document.getElementById("tabla_obras");
-
-  // Obtener obras sociales del localStorage
   const obrasSociales = obtenerObrasSociales();
 
-  // Si no hay obras, mostrar mensaje
   if (obrasSociales.length === 0) {
     const fila = document.createElement("tr");
     fila.innerHTML = `
@@ -16,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Generar filas dinámicamente
   obrasSociales.forEach((obra, index) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `

@@ -33,7 +33,6 @@ function validarFormulario() {
 
   let valido = true;
   
-  // IDs corregidos para coincidir con editarmedico.html
   const campos = {
     nombre: document.getElementById("nombre"),
     apellido: document.getElementById("apellido"),
@@ -45,49 +44,41 @@ function validarFormulario() {
     descripcion: document.getElementById("descripcion"),
   };
 
-  // Validar nombre
   if (!campos.nombre.value.trim() || campos.nombre.value.trim().length < 2) {
     marcarError(campos.nombre, "Debe ingresar un nombre válido");
     valido = false;
   } else marcarOk(campos.nombre);
 
-  // Validar apellido
   if (!campos.apellido.value.trim() || campos.apellido.value.trim().length < 2) {
     marcarError(campos.apellido, "Debe ingresar un apellido válido");
     valido = false;
   } else marcarOk(campos.apellido);
 
-  // Validar email
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campos.email.value)) {
     marcarError(campos.email, "Correo inválido");
     valido = false;
   } else marcarOk(campos.email);
 
-  // Validar teléfono
   if (!/^\d{7,}$/.test(campos.telefono.value)) {
     marcarError(campos.telefono, "Teléfono inválido (mínimo 7 dígitos)");
     valido = false;
   } else marcarOk(campos.telefono);
 
-  // Validar matrícula
   if (!campos.matricula.value.trim() || campos.matricula.value <= 0) {
     marcarError(campos.matricula, "Ingrese una matrícula válida");
     valido = false;
   } else marcarOk(campos.matricula);
 
-  // Validar especialidad
   if (!campos.especialidad.value.trim()) {
     marcarError(campos.especialidad, "Debe seleccionar una especialidad");
     valido = false;
   } else marcarOk(campos.especialidad);
 
-  // Validar obra social
   if (!campos.obrasocial.value.trim()) {
     marcarError(campos.obrasocial, "Debe seleccionar al menos una obra social");
     valido = false;
   } else marcarOk(campos.obrasocial);
 
-  // Validar descripción
   if (!campos.descripcion.value.trim() || campos.descripcion.value.trim().length < 10) {
     marcarError(campos.descripcion, "La descripción debe tener al menos 10 caracteres");
     valido = false;

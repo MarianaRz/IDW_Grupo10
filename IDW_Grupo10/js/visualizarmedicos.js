@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const obrasSociales = JSON.parse(localStorage.getItem("obrasSociales")) || [];
 
   medicos.forEach((m) => {
-    // Buscar especialidad por ID
     const especialidad = especialidades.find(e => e.id === m.especialidad);
     const especialidadNombre = especialidad ? especialidad.nombre : "Sin especificar";
 
-    // Buscar obras sociales por ID
     const obrasNombres = Array.isArray(m.obraSocial) && m.obraSocial.length > 0
       ? m.obraSocial
           .map(id => {

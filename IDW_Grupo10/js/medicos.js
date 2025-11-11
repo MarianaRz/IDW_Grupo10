@@ -82,7 +82,7 @@ const MEDICOS_BASE = [
     matricula: 7777,
     apellido: "Fernandez",
     nombre: "Laura",
-    especialidad: 1, // Clínica General (Cirugía General no existe en especialidades.js)
+    especialidad: 1, // Clínica General 
     obraSocial: [3, 1], // Apross, OSDE
     valorConsulta: 8000,
     descripcion: "Cirujana general con 15 años de experiencia.",
@@ -95,7 +95,7 @@ const MEDICOS_BASE = [
     matricula: 8888,
     apellido: "Castillo",
     nombre: "Mariana",
-    especialidad: 1, // Clínica General (Oncología no existe en especialidades.js)
+    especialidad: 1, // Clínica General 
     obraSocial: [4, 5], // SwissMedical, Galeno
     valorConsulta: 9500,
     descripcion: "Oncóloga con amplia experiencia en tratamientos modernos.",

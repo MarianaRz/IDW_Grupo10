@@ -1,33 +1,25 @@
-// admin-turnos.js - Sistema unificado de gestión de turnos
 document.addEventListener("DOMContentLoaded", () => {
   const medicos = obtenerMedicos();
   let modalEditar;
   
-  // Inicializar modal
+  // inicializar modal
   const modalElement = document.getElementById('modalEditarTurno');
   if (modalElement) {
     modalEditar = new bootstrap.Modal(modalElement);
   }
   
-  // Cargar médicos en todos los selects
+  // cargar medicos en los selects
   cargarMedicosEnSelects();
   
-  // Cambio en el tipo de turno
   document.getElementById("tipoTurno").addEventListener("change", cambiarTipoTurno);
-  
-  // Formulario turno individual
   document.getElementById("formTurnoIndividual").addEventListener("submit", (e) => {
     e.preventDefault();
     crearTurnoIndividual();
   });
-  
-  // Filtrar turnos
   document.getElementById("btnFiltrar").addEventListener("click", cargarTurnos);
-  
-  // Guardar edición
   document.getElementById("btnGuardarEdicion").addEventListener("click", guardarEdicionTurno);
   
-  // Cargar turnos inicialmente
+  // cargar turnos inicialmente
   cargarTurnos();
 });
 
@@ -43,7 +35,7 @@ function cargarMedicosEnSelects() {
     const select = document.getElementById(selectId);
     if (!select) return;
     
-    // Mantener la opción inicial excepto en editarMedico
+    // mantener la opción inicial excepto en editarMedico
     if (selectId !== "editarMedico") {
       const primeraOpcion = select.querySelector("option");
       select.innerHTML = "";
@@ -90,7 +82,6 @@ function crearTurnoIndividual() {
     return;
   }
   
-  // Validar fecha si es turno único
   if (tipoTurno === "unico" && !fecha) {
     alert("Debe seleccionar una fecha para turno único");
     return;
@@ -127,12 +118,10 @@ function cargarTurnos() {
   const turnosAdmin = obtenerTurnosAdmin();
   const reservas = JSON.parse(localStorage.getItem("turnos")) || [];
 
-  // Obtener filtros
   const filtroMedico = Number(document.getElementById("filtroMedico").value) || null;
   const filtroFecha = document.getElementById("filtroFecha").value || null;
   const filtroEstado = document.getElementById("filtroEstado").value || null;
 
-  // Filtrar turnos
   let turnosFiltrados = turnosAdmin;
 
   if (filtroMedico) {
@@ -151,7 +140,6 @@ function cargarTurnos() {
     turnosFiltrados = turnosFiltrados.filter(t => !t.permanente && t.disponible === false);
   }
 
-  // Ordenar: permanentes primero, luego por fecha y horario
   turnosFiltrados.sort((a, b) => {
     if (a.permanente && !b.permanente) return -1;
     if (!a.permanente && b.permanente) return 1;
@@ -160,7 +148,6 @@ function cargarTurnos() {
     return a.horario.localeCompare(b.horario);
   });
 
-  // Mostrar turnos
   const tablaTurnos = document.getElementById("tablaTurnos");
   const sinResultados = document.getElementById("sinResultados");
   tablaTurnos.innerHTML = "";
@@ -180,7 +167,6 @@ function cargarTurnos() {
     let fechaDisplay, estadoDisplay;
 
     if (turno.permanente) {
-      // Reservas de este turno
       const reservasDelTurno = reservas
         .filter(r => r.medicoMatricula === turno.medicoMatricula && r.horario === turno.horario)
         .map(r => r.fecha);
@@ -208,7 +194,6 @@ function cargarTurnos() {
       `;
     }
 
-    // Crear celdas
     const tdMedico = document.createElement("td");
     tdMedico.innerHTML = medico ? `Dr. ${medico.nombre} ${medico.apellido}` : 'Médico no encontrado';
 
@@ -226,7 +211,6 @@ function cargarTurnos() {
 
     const tdAcciones = document.createElement("td");
 
-    // Botón editar
     const btnEditar = document.createElement("button");
     btnEditar.className = "btn btn-sm btn-outline-primary me-1";
     btnEditar.title = "Editar";
@@ -234,7 +218,6 @@ function cargarTurnos() {
     btnEditar.addEventListener("click", () => editarTurnoModal(turno.id));
     tdAcciones.appendChild(btnEditar);
 
-    // Botón eliminar
     const btnEliminar = document.createElement("button");
     btnEliminar.className = "btn btn-sm btn-outline-danger";
     btnEliminar.title = "Eliminar";
@@ -317,6 +300,6 @@ function eliminarTurnoConfirm(id) {
   }
 }
 
-// Exponer funciones globalmente para los onclick
+// exponer funciones globalmente para los onclick
 window.editarTurnoModal = editarTurnoModal;
 window.eliminarTurnoConfirm = eliminarTurnoConfirm;

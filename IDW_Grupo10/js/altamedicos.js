@@ -1,14 +1,13 @@
-// altamedicos.js - CORREGIDO
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.querySelector("#cuerpo form");
   if (!form) return;
 
-  // Traer especialidades y obras sociales desde localStorage
+  // especialidades y obras sociales desde localStorage
   let especialidades = JSON.parse(localStorage.getItem("especialidades")) || [];
   let obrasSociales = JSON.parse(localStorage.getItem("obrasSociales")) || [];
 
-  // ✅ Cargar selects usando ID (no índice)
+  // cargar selects usando ID
   const especialidadSelect = document.getElementById("selectEspecialidad");
   if (especialidadSelect) {
     especialidadSelect.innerHTML = '<option value="">Seleccione una especialidad</option>';
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Submit
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -52,12 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let medicos = JSON.parse(localStorage.getItem("medicos") || "[]");
 
-    // Leer imagen
+    // leer imagen
     const archivo = document.getElementById("foto")?.files[0];
     let imagenBase64 = "";
     if (archivo) imagenBase64 = await convertirImagenABase64(archivo);
 
-    // Obtener valores (ahora son IDs, no índices)
+    // obtener valores
     const especialidadId = document.getElementById("selectEspecialidad").value;
     const obra1Id = document.getElementById("selectObraSocial").value;
     const obra2Id = document.getElementById("selectObraSocial2").value;
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img: imagenBase64 || ""
     };
 
-    // Evitar matrícula repetida
+    // evitar matrícula repetida
     if (medicos.some((m) => m.matricula === nuevoMedico.matricula)) {
       alert("Ya existe un médico con esa matrícula.");
       return;
@@ -92,10 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Médico agregado correctamente ✅");
     form.reset();
   });
-}); // fin DOMContentLoaded
+}); 
 
 
-// ✅ Mostrar médicos en index - buscar por ID
+// mostrar médicos en index 
 function mostrarMedicosEnIndex() {
   const contenedor = document.getElementById("contenedor_doctores");
   if (!contenedor) return;
@@ -107,11 +105,9 @@ function mostrarMedicosEnIndex() {
   contenedor.innerHTML = "";
 
   medicos.forEach((medico) => {
-    // Buscar especialidad por ID usando .find()
     const especialidad = especialidades.find(e => e.id === medico.especialidad);
     const espNombre = especialidad ? especialidad.nombre : "Sin especificar";
 
-    // Buscar obras sociales por ID
     const obrasNombres = Array.isArray(medico.obraSocial) && medico.obraSocial.length > 0
       ? medico.obraSocial
           .map(id => {
@@ -150,5 +146,4 @@ function convertirImagenABase64(archivo) {
   });
 }
 
-// Llamada para mostrar en index
 document.addEventListener("DOMContentLoaded", mostrarMedicosEnIndex);

@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     let valido = true;
 
-    // Limpiar mensajes previos
     document
       .querySelectorAll(".text-danger, .text-success")
       .forEach((e) => e.remove());
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensaje = document.getElementById("mensaje");
     const consentimiento = document.getElementById("consentimiento");
 
-    // Función para mostrar error
     const marcarError = (campo, mensaje) => {
       campo.classList.add("is-invalid");
       const error = document.createElement("small");
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       valido = false;
     };
 
-    // Validaciones
     if (nombre.value.trim().length < 3)
       marcarError(
         nombre,
@@ -52,12 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
       valido = false;
     }
 
-    // Teléfono (opcional, pero si lo escribe debe tener formato válido)
     if (telefono.value.trim() !== "" && !/^\d{7,}$/.test(telefono.value)) {
       marcarError(telefono, "Debe ingresar un número válido");
     }
 
-    // Si todo es válido
     if (valido) {
       const exito = document.createElement("p");
       exito.textContent = "✅ ¡Mensaje enviado correctamente!";

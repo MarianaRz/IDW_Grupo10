@@ -5,16 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => { 
     e.preventDefault();
 
-    // Validar (si tenés una función aparte de validación)
     if (typeof validarFormulario === "function" && !validarFormulario()) {
       alert("Por favor, complete correctamente todos los campos requeridos.");
       return;
     }
 
-    // Obtener obras sociales del localStorage
+    // obtener obras sociales del localStorage
     let obrasSociales = JSON.parse(localStorage.getItem("obrasSociales") || "[]");
 
-    // Leer imagen (si se seleccionó)
     const archivo = document.getElementById("foto")?.files[0];
     let imagenBase64 = "";
     if (archivo) {
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const nuevaObra = {
-      id: Date.now(), // ID único generado automáticamente
+      id: Date.now(), // ID unico generado automáticamente
       nombre: document.getElementById("nombre").value.trim(),
       descripcion: document.getElementById("descripcion").value.trim(),
       email: document.getElementById("email").value.trim(),
@@ -31,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img: imagenBase64 || ""
     };
 
-    // Evitar duplicados por nombre
+    // evitar duplicados
     if (obrasSociales.some((o) => o.nombre.toLowerCase() === nuevaObra.nombre.toLowerCase())) {
       alert("Ya existe una obra social con ese nombre.");
       return;
@@ -49,13 +47,11 @@ function validarFormulario() {
   const form = document.getElementById("form_admin");
   if (!form) return false;
 
-  // Limpia validaciones previas
   form.querySelectorAll(".is-valid, .is-invalid, .text-danger").forEach(el => {
     el.classList.remove("is-valid", "is-invalid");
     if (el.classList.contains("text-danger")) el.remove();
   });
 
-  // Campos
   const nombre = document.getElementById("nombre");
   const descripcion = document.getElementById("descripcion");
   const email = document.getElementById("email");
@@ -64,7 +60,6 @@ function validarFormulario() {
 
   let valido = true;
 
-  // Validaciones básicas
   if (!nombre.value.trim() || nombre.value.trim().length < 2) {
     marcarError(nombre, "Debe ingresar un nombre válido");
     valido = false;
@@ -98,7 +93,6 @@ function validarFormulario() {
   return valido;
 }
 
-// Helpers para errores y éxito visual
 function marcarError(elemento, mensaje) {
   if (!elemento) return;
   elemento.classList.add("is-invalid");
@@ -114,7 +108,6 @@ function marcarOk(elemento) {
   const previo = elemento.parentNode.querySelector(".text-danger");
   if (previo) previo.remove();
 }
-
 
 function mostrarObraSocialEnIndex() {
   const contenedor = document.getElementById("obras_sociales");
@@ -149,5 +142,4 @@ function convertirImagenABase64(archivo) {
   });
 }
 
-// Si se llama desde index.html
 document.addEventListener("DOMContentLoaded", mostrarObraSocialEnIndex);

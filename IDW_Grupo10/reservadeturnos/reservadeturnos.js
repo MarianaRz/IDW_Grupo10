@@ -8,40 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Mostrar usuario logeado en el header
-  const login_item = document.getElementById("login_item");
-  if (login_item) {
-    login_item.innerHTML = `
-      <div class="dropdown">
-        <a 
-          class="nav-link dropdown-toggle d-flex align-items-center" 
-          href="#" 
-          role="button" 
-          id="userDropdown" 
-          data-bs-toggle="dropdown" 
-          aria-expanded="false"
-        >
-          <i class="fa-solid fa-user me-2"></i>${usuario_logeado}
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-          <li><a class="dropdown-item" href="#" id="cerrar_sesion">
-            <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar sesión</a>
-          </li>
-        </ul>
-      </div>
-    `;
-
-    const cerrar_sesion = document.getElementById("cerrar_sesion");
-    cerrar_sesion.addEventListener("click", () => {
-      sessionStorage.removeItem("usuario_logeado");
-      window.location.href = "../index.html";
-    });
-  }
-
   inicializarSistemaTurnos();
 });
 
-// ELEMENTOS
 const obraSocialSelect = document.getElementById("obraSocial");
 const especialidadSelect = document.getElementById("especialidad");
 const medicoSelect = document.getElementById("medico");
@@ -59,7 +28,6 @@ const listaMisTurnos = document.getElementById("listaMisTurnos");
 // HORARIOS BASE (para turnos automáticos)
 const horariosBase = ["08:00", "09:00", "10:00", "11:00", "16:00", "17:00", "18:00"];
 
-// DATOS
 let medicos = [];
 let especialidades = [];
 let obrasSociales = [];
@@ -67,25 +35,24 @@ let medicosFiltrados = [];
 let obraSocialSeleccionada = null;
 
 function inicializarSistemaTurnos() {
-  // Cargar datos desde localStorage
+  // cargar datos desde localStorage
   medicos = obtenerMedicos();
   especialidades = JSON.parse(localStorage.getItem("especialidades")) || [];
   obrasSociales = JSON.parse(localStorage.getItem("obrasSociales")) || [];
 
-  // Cargar obras sociales en el select
+  // cargar obras sociales en el select
   cargarObrasSociales();
 
-  // Event listeners
   obraSocialSelect.addEventListener("change", alSeleccionarObraSocial);
   especialidadSelect.addEventListener("change", alSeleccionarEspecialidad);
   medicoSelect.addEventListener("change", alSeleccionarMedico);
   fechaInput.addEventListener("change", validarFechaYMostrarHorarios);
 
-  // Botones de navegación
+  // botones de navegación
   document.getElementById("btnNavReservar").addEventListener("click", mostrarFormularioReserva);
   document.getElementById("btnNavVerTurnos").addEventListener("click", mostrarMisTurnos);
 
-  // Submit del formulario
+  // formulario
   form.addEventListener("submit", confirmarTurno);
 }
 
@@ -101,7 +68,7 @@ function cargarObrasSociales() {
   });
 }
 
-// AL SELECCIONAR OBRA SOCIAL → Filtrar especialidades disponibles
+// AL SELECCIONAR OBRA SOCIAL filtrar especialidades disponibles
 function alSeleccionarObraSocial() {
   limpiarSelects(['especialidad', 'medico']);
   limpiarValoresConsulta();
@@ -110,10 +77,9 @@ function alSeleccionarObraSocial() {
   const obraSocialId = Number(obraSocialSelect.value);
   if (!obraSocialId) return;
 
-  // Guardar obra social seleccionada
   obraSocialSeleccionada = obrasSociales.find(os => os.id === obraSocialId);
 
-  // Filtrar médicos que aceptan esta obra social
+  // filtrar médicos que aceptan esa obra social
   medicosFiltrados = medicos.filter(m => 
     Array.isArray(m.obraSocial) && m.obraSocial.includes(obraSocialId)
   );
@@ -123,13 +89,13 @@ function alSeleccionarObraSocial() {
     return;
   }
 
-  // Obtener especialidades únicas de estos médicos
+  // obtener especialidades únicas de estos médicos
   const especialidadesIds = [...new Set(medicosFiltrados.map(m => m.especialidad))];
   const especialidadesDisponibles = especialidades.filter(e => 
     especialidadesIds.includes(e.id)
   );
 
-  // Cargar especialidades en el select
+  // cargar especialidades en el select
   especialidadSelect.innerHTML = '<option value="">Seleccione una especialidad...</option>';
   especialidadesDisponibles.forEach(esp => {
     const opt = document.createElement("option");
@@ -139,7 +105,7 @@ function alSeleccionarObraSocial() {
   });
 }
 
-// AL SELECCIONAR ESPECIALIDAD → Filtrar médicos
+// AL SELECCIONAR ESPECIALIDAD filtrar médicos
 function alSeleccionarEspecialidad() {
   limpiarSelects(['medico']);
   limpiarValoresConsulta();
@@ -148,7 +114,7 @@ function alSeleccionarEspecialidad() {
   const especialidadId = Number(especialidadSelect.value);
   if (!especialidadId) return;
 
-  // Filtrar médicos por especialidad (ya están filtrados por obra social)
+  // filtrar médicos por especialidad
   const medicosConEspecialidad = medicosFiltrados.filter(m => 
     m.especialidad === especialidadId
   );
@@ -158,7 +124,7 @@ function alSeleccionarEspecialidad() {
     return;
   }
 
-  // Cargar médicos en el select
+  // cargar médicos en el select
   medicoSelect.innerHTML = '<option value="">Seleccione un médico...</option>';
   medicosConEspecialidad.forEach(m => {
     const opt = document.createElement("option");
@@ -169,7 +135,7 @@ function alSeleccionarEspecialidad() {
   });
 }
 
-// AL SELECCIONAR MÉDICO → Mostrar valores
+// AL SELECCIONAR MÉDICO mostrar valores
 function alSeleccionarMedico() {
   limpiarValoresConsulta();
   horariosDiv.innerHTML = "";
@@ -185,12 +151,10 @@ function alSeleccionarMedico() {
   const descuento = (valorOriginal * porcentajeDescuento) / 100;
   const valorFinal = valorOriginal - descuento;
 
-  // Mostrar valores
   valorConsultaOriginal.textContent = `$${valorOriginal.toFixed(2)}`;
   descuentoTexto.textContent = `${porcentajeDescuento}% de descuento (-$${descuento.toFixed(2)})`;
   valorConsultaFinal.textContent = `$${valorFinal.toFixed(2)}`;
 
-  // Mostrar horarios si hay fecha seleccionada
   if (fechaInput.value) {
     mostrarHorariosDisponibles();
   }
@@ -211,7 +175,7 @@ function validarFechaYMostrarHorarios() {
   mostrarHorariosDisponibles();
 }
 
-// MOSTRAR HORARIOS DISPONIBLES (Combinando horarios base + turnos admin)
+// MOSTRAR HORARIOS DISPONIBLES 
 function mostrarHorariosDisponibles() {
   horariosDiv.innerHTML = "";
   
@@ -226,27 +190,19 @@ function mostrarHorariosDisponibles() {
 
   if (!medicoSeleccionado || !especialidadObj) return;
 
-  // ✅ OBTENER TURNOS DEL ADMIN para este médico y fecha
+  // OBTENER TURNOS 
   const turnosAdmin = obtenerTurnosAdmin();
   const turnosDelMedico = turnosAdmin.filter(t => {
     if (t.medicoMatricula !== medicoMatricula) return false;
-    
-    // Incluir turnos permanentes (siempre disponibles salvo que estén reservados)
     if (t.permanente === true) return true;
-    
-    // Incluir turnos con fecha específica que estén disponibles
     if (t.fecha === fecha && t.disponible === true) return true;
-    
     return false;
   });
 
-  // ✅ OBTENER HORARIOS DE TURNOS ADMIN
   const horariosAdmin = turnosDelMedico.map(t => t.horario);
-
-  // ✅ COMBINAR: horarios base + horarios admin (sin duplicados)
   const todosLosHorarios = [...new Set([...horariosBase, ...horariosAdmin])].sort();
 
-  // Obtener turnos RESERVADOS (ocupados) - esto verifica las reservas reales
+  // obtener turnos RESERVADOS (ocupados) 
   const turnos = JSON.parse(localStorage.getItem("turnos")) || [];
   const ocupados = turnos
     .filter(t => 
@@ -256,14 +212,13 @@ function mostrarHorariosDisponibles() {
     )
     .map(t => t.horario);
 
-  // Crear botones de horarios
   todosLosHorarios.forEach(hora => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = hora;
     btn.classList.add("btn", "btn-outline-primary", "m-1");
     
-    // ✅ Marcar como ocupado si ya está reservado para ESTA fecha específica
+    // marcar como ocupado si ya esta reservado 
     if (ocupados.includes(hora)) {
       btn.classList.add("disabled");
       btn.disabled = true;
@@ -284,7 +239,6 @@ function mostrarHorariosDisponibles() {
 function confirmarTurno(e) {
   e.preventDefault();
 
-  // Validar campos personales
   const campos = ["nombre", "apellido", "dni", "telefono"];
   for (const id of campos) {
     const input = document.getElementById(id);
@@ -295,7 +249,6 @@ function confirmarTurno(e) {
     }
   }
 
-  // Validar selecciones
   if (!obraSocialSelect.value) {
     alert("Seleccione una obra social");
     return;
@@ -334,7 +287,7 @@ function confirmarTurno(e) {
     valorFinal: valorFinal.toFixed(2)
   };
 
-  // Mostrar resumen
+  // mostrar resumen
   resumenDatos.innerHTML = `
     <li class="list-group-item"><strong>Paciente:</strong> ${turno.nombre} ${turno.apellido}</li>
     <li class="list-group-item"><strong>DNI:</strong> ${turno.dni}</li>
@@ -420,7 +373,7 @@ function cancelarTurno(turno, cardElement) {
     turnosTotales.splice(turnoIndex, 1);
     localStorage.setItem("turnos", JSON.stringify(turnosTotales));
     
-    // ✅ MARCAR TURNO ADMIN COMO DISPONIBLE NUEVAMENTE (si existe)
+    // MARCAR TURNO ADMIN COMO DISPONIBLE NUEVAMENTE 
     marcarTurnoComoDisponible(turno.medicoMatricula, turno.fecha, turno.horario);
     
     cardElement.remove();

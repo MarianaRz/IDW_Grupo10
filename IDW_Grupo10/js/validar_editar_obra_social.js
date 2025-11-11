@@ -38,7 +38,6 @@ function validarFormulario() {
     url: document.getElementById("url")
   };
 
-  // Verificación general
   for (const key in campos) {
     if (!campos[key].value.trim()) {
       marcarError(campos[key], "Campo obligatorio");
@@ -46,12 +45,10 @@ function validarFormulario() {
     }
   }
 
-  // Validaciones específicas
   if (campos.nombre.value.trim().length < 2) {
     marcarError(campos.nombre, "Debe ingresar un nombre válido");
     valido = false;
   } else marcarOk(campos.nombre);
-
 
   if (!campos.email.value.trim()) {
     marcarError(campos.email, "El email es obligatorio");

@@ -1,6 +1,6 @@
 /* CUERPO PRINCIPAL DE LA WEB */
 body{
-  position: relative; /* necesario para que el footer se posicione respecto a body */
+  position: relative; 
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ body{
 header {
   background-color: rgb(73, 73, 248);
   color: white;
-  padding: 2rem 4rem; /* más alto y más ancho */
+  padding: 2rem 4rem; 
   position: fixed;
   top: 0;
   left: 0;
@@ -575,9 +575,50 @@ body#admin {
   z-index: 900; 
 }
 
-@media (max-width: 900px) {
+.sidebar-btn {
+  font-size: 20px;
+  color: #333;
+  position: fixed;
+  top: 145px;
+  left: 15px;
+  cursor: pointer;
+  z-index: 901;
+  display: none;
+}
+
+
+@media (max-width: 900px){
+  .sidebar-btn {
+    display: block; 
+  }
+
   .sidebar {
-    top: 150px;
+    left: -250px;
+    transition: left 0.4s ease;
+  }
+
+  .fw-bold{
+    padding-top: 20px;
+  }
+
+    #toggle-sidebar:checked ~ .sidebar {
+    left: 0;
+  }
+
+  main#cuerpo {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 600px){
+
+  .sidebar-btn{
+    top:85px;
+    font-size: 17px;
+  }
+
+  .sidebar {
+    width: 170px;
   }
 }
 
@@ -618,7 +659,6 @@ body#admin {
   font-weight: 400;          
 }
 
-/* Para que se vean bien los campos con error o validados:*/
 .is-invalid {
   border: 2px solid #dc3545;
 }

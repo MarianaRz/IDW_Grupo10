@@ -2,7 +2,6 @@ function marcarError(elemento, mensaje) {
   if (!elemento) return;
   elemento.classList.add("is-invalid");
 
-  // evitamos duplicar mensajes
   let previo = elemento.parentNode.querySelector(".text-danger");
   if (previo) previo.remove();
 
@@ -15,7 +14,6 @@ function marcarError(elemento, mensaje) {
 function marcarOk(elemento) {
   if (!elemento) return;
   elemento.classList.add("is-valid");
-  // eliminamos mensaje de error previo si existía
   let previo = elemento.parentNode.querySelector(".text-danger");
   if (previo) previo.remove();
 }
@@ -34,15 +32,14 @@ function validarFormulario() {
 
   let valido = true;
   
-  // ✅ CAMBIO: IDs corregidos para coincidir con altamedicos.js
   const campos = {
     nombre: document.getElementById("nombre"),
     apellido: document.getElementById("apellido"),
     email: document.getElementById("email"),
     telefono: document.getElementById("telefono"),
     matricula: document.getElementById("matricula"),
-    especialidad: document.getElementById("selectEspecialidad"),  // ← CAMBIO
-    obrasocial: document.getElementById("selectObraSocial"),      // ← CAMBIO
+    especialidad: document.getElementById("selectEspecialidad"),  
+    obrasocial: document.getElementById("selectObraSocial"),      
     descripcion: document.getElementById("descripcion"),
     foto: document.getElementById("foto"),
     consulta: document.getElementById("consulta")

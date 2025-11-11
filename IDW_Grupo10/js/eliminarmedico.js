@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let medicoActual = null;
 
-  // Obtener especialidades para mostrar el nombre
   const especialidades = JSON.parse(localStorage.getItem("especialidades")) || [];
 
   btnBuscar.addEventListener("click", () => {
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Buscar el nombre de la especialidad por ID
+    // buscar el nombre de la especialidad por ID
     const especialidad = especialidades.find(e => e.id === medicoActual.especialidad);
     const especialidadNombre = especialidad ? especialidad.nombre : "Sin especificar";
 
