@@ -571,9 +571,55 @@ body#admin {
   z-index: 900; 
 }
 
+.sidebar-btn {
+  font-size: 20px;
+  color: #333;
+  position: fixed;
+  top: 145px;
+  left: 15px;
+  cursor: pointer;
+  z-index: 901;
+  display: none;
+}
+
 @media (max-width: 900px) {
   .sidebar {
     top: 150px;
+  }
+}
+
+@media (max-width: 700px){
+  .sidebar-btn {
+    display: block; 
+  }
+
+  .sidebar {
+    left: -250px;
+    transition: left 0.4s ease;
+  }
+
+  .fw-bold{
+    padding-top: 20px;
+  }
+
+  #toggle-sidebar:checked ~ .sidebar {
+    left: 0;
+  }
+
+  main#cuerpo {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 600px){
+
+  .sidebar-btn{
+    top:85px;
+    font-size: 17px;
+  }
+
+  .sidebar {
+    width: 170px;
   }
 }
 
