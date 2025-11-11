@@ -73,8 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const adminLi = document.createElement("li");
         adminLi.id = "admin_item";
 
-        // ✅ Ruta absoluta (funciona sin importar la carpeta)
-        const rutaAdmin = "/admin/altamedicos.html";
+        // Detectar ruta actual
+        const rutaActual = window.location.pathname;
+
+        // Si está en /admin/ o /reservadeturnos/, sube un nivel
+        const rutaAdmin = (rutaActual.includes("/admin/") || rutaActual.includes("/reservadeturnos/"))
+          ? "../admin/altamedicos.html"
+          : "admin/altamedicos.html";
 
         adminLi.innerHTML = `<a href="${rutaAdmin}">Admin</a>`;
         menu.insertBefore(adminLi, login_item.parentElement);
