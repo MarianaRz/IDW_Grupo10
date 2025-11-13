@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     guardarMedicos(medicos);
     alert("Médico actualizado correctamente ✅");
+    formEditar.reset();
   });
 });
 

@@ -37,7 +37,7 @@ if (form_login) {
   });
 }
 
-// Mostrar usuario en el header si hay sesión iniciada
+// mostrar usuario en el header si hay sesión iniciada
 document.addEventListener("DOMContentLoaded", function () {
   const login_item = document.getElementById("login_item");
   const usuario_logeado = sessionStorage.getItem("usuario_logeado");
@@ -73,8 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const adminLi = document.createElement("li");
         adminLi.id = "admin_item";
 
-        // ✅ Ruta absoluta (funciona sin importar la carpeta)
-        const rutaAdmin = "/admin/altamedicos.html";
+        const rutaActual = window.location.pathname;
+        const rutaAdmin = (rutaActual.includes("/admin/") || rutaActual.includes("/reservadeturnos/"))
+          ? "../admin/altamedicos.html"
+          : "admin/altamedicos.html";
 
         adminLi.innerHTML = `<a href="${rutaAdmin}">Admin</a>`;
         menu.insertBefore(adminLi, login_item.parentElement);
@@ -84,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function irAlInicio() {
     const ruta = window.location.pathname;
 
-    // Si la URL actual incluye "/admin/" o "/reservadeturnos/", sube un nivel
     if (ruta.includes("/admin/") || ruta.includes("/reservadeturnos/")) {
       window.location.href = "../index.html";
     } else {

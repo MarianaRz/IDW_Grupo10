@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("form_admin");
+  const form = document.getElementById("formObraSocial");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => { 
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     obrasSociales.push(nuevaObra);
     localStorage.setItem("obrasSociales", JSON.stringify(obrasSociales));
 
-    alert("Obra social registrada correctamente ✅");
     form.reset();
+    alert("Obra social registrada correctamente ✅");
   });
 });
 

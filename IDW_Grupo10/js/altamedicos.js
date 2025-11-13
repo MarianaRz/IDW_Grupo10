@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     medicos.push(nuevoMedico);
     localStorage.setItem("medicos", JSON.stringify(medicos));
 
-    alert("Médico agregado correctamente ✅");
     form.reset();
+    alert("Médico agregado correctamente ✅");
   });
 }); // fin DOMContentLoaded
 
